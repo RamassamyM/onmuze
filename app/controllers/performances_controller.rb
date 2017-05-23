@@ -6,8 +6,8 @@ class PerformancesController < ApplicationController
     session[:date] = params[:date]
     @performances = Performance.near(params[:address], 20)
                                .joins(:genres)
-                               .where("genres.event_type = ?", params[:event_type])
-                               .select { |p| p.available_for(date) }
+                               .where('genres.event_type = ?', params[:event_type])
+                               .select { |p| available_for(p, date) }
   end
 
   def show; end
