@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523100239) do
+ActiveRecord::Schema.define(version: 20170523125508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,15 @@ ActiveRecord::Schema.define(version: 20170523100239) do
     t.index ["place_id"], name: "index_events_on_place_id", using: :btree
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string   "event_type"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "performances", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "category"
     t.string   "name"
     t.text     "description"
     t.string   "address"
@@ -52,6 +58,10 @@ ActiveRecord::Schema.define(version: 20170523100239) do
     t.string   "soundcloud_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "genre_id"
+    t.index ["genre_id"], name: "index_performances_on_genre_id", using: :btree
     t.index ["user_id"], name: "index_performances_on_user_id", using: :btree
   end
 
@@ -62,6 +72,8 @@ ActiveRecord::Schema.define(version: 20170523100239) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
@@ -93,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170523100239) do
   end
 
   add_foreign_key "events", "places"
+  add_foreign_key "performances", "genres"
   add_foreign_key "performances", "users"
   add_foreign_key "places", "users"
   add_foreign_key "proposals", "events"
