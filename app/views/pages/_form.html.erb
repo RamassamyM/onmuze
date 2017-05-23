@@ -1,22 +1,22 @@
 <div class="container">
   <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
     <div class="form-group row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4">
         <%= f.input :address, placeholder: "Your address", input_html: { class: "input-lg" }, label_html: { class: "hidden" } %>
       </div>
 
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4">
-        <%= f.association :category, collection: Genre.order('event_type ASC'), placeholder: "Type of event", input_html: { class: "input-lg" }, label_html: { class: "hidden" } %>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4">
+        <%= f.input :event_type, collection: Genre.order('event_type ASC'), placeholder: "Type of event", input_html: { class: "input-lg" }, label_html: { class: "hidden" } %>
       </div>
 
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4">
         <%= f.input :date, as: :string, input_html: { class: "input-lg datepicker placeholder-padding" }, label_html: { class: "hidden" }, placeholder: "Pick a date" %>
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <%= f.button :submit, "Create an event", class: "btn btn-primary btn-lg" %>
+        <%= f.button :submit, "Create an event", class: "btn btn-primary btn-lg", id: "btn-home" %>
       </div>
     </div>
   <% end %>
