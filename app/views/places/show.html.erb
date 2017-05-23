@@ -1,13 +1,20 @@
 <div class="container">
-
   <div class="text-center">
     <h1>Your places</h1>
   </div>
-
   <div>
     <h2><%= @place.name %></h2>
     <p><strong>Address : </strong><%= @place.address %></p>
     <p><strong>Description : </strong><%= @place.description %></p>
   </div>
-
+</div>
+<div class="container">
+  <div>
+    <%= link_to "Add a new place", new_place_path, class: "btn btn-primary lg" %>
+  </div>
+  <div>
+    <% @events.each do |event| %>
+    <%= link_to event.scheduled_at, event_path(event) %>
+    <% end %>
+  </div>
 </div>
