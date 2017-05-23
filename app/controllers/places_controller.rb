@@ -5,18 +5,22 @@ class PlacesController < ApplicationController
   end
 
   def create
-
+    @place = Place.new(place_params)
+    if @place.save
+      redirect_to place_path(@place)
+    else
+      render :new
+    end
   end
 
   def show
     @place = Place.find(params[:id])
+    @events = @place.events
   end
 
   private
 
-  def
-
-  def places_params
+  def place_params
     params.require(:place).permit(:name, :address, :description, :photo)
   end
 
