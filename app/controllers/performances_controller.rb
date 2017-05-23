@@ -1,13 +1,14 @@
 # PerformancesController
 class PerformancesController < ApplicationController
   before_action :set_performance, only: %i(show)
+  skip_before_action :authenticate_user!, only: %i(index show)
 
   def index
-    session[:date] = params[:date]
-    @performances = Performance.near(params[:address], 20)
-                               .joins(:genres)
-                               .where('genres.event_type = ?', params[:event_type])
-                               .select { |p| available_for(p, date) }
+    session[:date] = params[:performance][:date]
+    @performances = Performance.near(params[:performance][:address], 20)
+                               .joins(:genre)
+                               .where('genres.event_type = ?', params[:performance][:event_type])
+                               .select { |p| available_for(p, session[:date]) }
   end
 
   def show; end
