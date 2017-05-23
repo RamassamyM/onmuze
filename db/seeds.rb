@@ -59,7 +59,6 @@ bar = {
   name: "L\'Antidote",
   address: "13bis rue Elie Gentrac",
   description: "L'Antidote vous propose : bar, repas, évènements culturels en tous genre, programmation musicale éclectique."
-
 }
 new_place = Place.new(bar)
 new_place.user = User.first
@@ -95,9 +94,7 @@ end
 
 puts "done"
 
-
 # Creating genres
-
 print "Seeding genres with event_types........."
 genres = {
   "Show" => ["Standup", "Impro"],
