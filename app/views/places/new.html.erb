@@ -1,13 +1,16 @@
-<h1>Create a new place</h1>
-<h2>to organize your best event !</h2>
 
-<div class="container">
+<div class="container text-center">
 
-  <%= simple_form_for @place do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.submit "Create my event", class: "btn btn-primary" %>
-  <% end %>
+  <h1>Create a new place</h1>
+  <p>to organize your best event !</p>
+
+  <div class="col-xs-4 col-xs-offset-4">
+
+    <%= simple_form_for @place do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.submit "Create my event", class: "btn btn-primary" %>
+    <% end %>
 
 </div>
