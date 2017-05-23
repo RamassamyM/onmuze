@@ -99,18 +99,17 @@ puts "done"
 # Creating genres
 
 print "Seeding genres with event_types........."
-event_types = ["Show", "Music", "Dance", "Magic", "Performance", "Expo"]
-genres = [["Standup", "Impro"],
-  ["African", "Latin", "Asian" "Jazz", "Blues", "Disco", "Funk", "Classical", "Pop", "Rock", "House", "Techno"],
-  ["African", "Asian", "Contempory", "Modern Jazz", "Classical"],
-  ["Magic"],
-  ["Fireworks", "Fire shows", "Street show"],
-  ["Paintings", "Photos", "Scultptures", "Stree Art", "Body Art"]
-]
-
-event_types.each_with_index do |event_type, index|
-  genres[index].each do |genre_name|
-    genre = Genre.new(name: genre_name, event_type: event_type)
+genres = {
+  "Show" => ["Standup", "Impro"],
+  "Music" => ["African", "Latin", "Asian" "Jazz", "Blues", "Disco", "Funk", "Classical", "Pop", "Rock", "House", "Techno"],
+  "Dance" => ["African", "Asian", "Contempory", "Modern Jazz", "Classical"],
+  "Magic" => ["Magic"],
+  "Performance" => ["Fireworks", "Fire shows", "Street show"],
+  "Exhibition" => ["Paintings", "Photos", "Scultptures", "Stree Art", "Body Art"]
+}
+genres.each do |key, value|
+  value.each do |genre_name|
+    genre = Genre.new(name: genre_name, event_type: key)
     genre.save!
   end
 end
