@@ -28,7 +28,9 @@ class PerformancesController < ApplicationController
       :youtube_url,
       :facebook_url,
       :instagram_url,
-      :soundcloud_url
+      :soundcloud_url,
+      :avatar,
+      :banner
     )
   end
 end
