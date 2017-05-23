@@ -1,5 +1,6 @@
 class Performance < ApplicationRecord
   belongs_to :user
+  belongs_to :genre
   has_many :proposals
   has_many :events, through: :proposals
   has_attachment :avatar
