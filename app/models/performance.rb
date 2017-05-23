@@ -7,7 +7,6 @@ class Performance < ApplicationRecord
   has_attachment :banner
   validates :name, presence: true
   validates :address, presence: true
-  validates :category, presence: true
   geocoded_by :address
-  after_validation :geocode, if: :address_changed
+  after_validation :geocode, if: :address_changed?
 end
