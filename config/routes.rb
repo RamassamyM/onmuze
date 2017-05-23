@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :places, only: %i(new create)
   root to: 'pages#home'
+  mount Attachinary::Engine => "/attachinary"
 end
