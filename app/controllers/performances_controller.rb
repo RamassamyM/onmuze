@@ -29,7 +29,7 @@ class PerformancesController < ApplicationController
     available = true
     if performance.proposals.any?
       performance.proposals.each do |proposal|
-        if proposal.event.scheduled_at == date
+        if proposal.event.scheduled_at == date && proposal.status == 'confirmed'
           available = false
           break
         end
