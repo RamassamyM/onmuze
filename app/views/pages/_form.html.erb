@@ -6,7 +6,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4">
-        <%= f.input :event_type, collection: Genre.order('event_type ASC'), placeholder: "Type of event", input_html: { class: "input-lg" }, label_html: { class: "hidden" } %>
+        <%= f.input :event_type, collection: @genres, prompt: "Type of event", input_html: { class: "input-lg" }, label_html: { class: "hidden" } %>
       </div>
 
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4">
