@@ -1,4 +1,4 @@
-class PerformanceController < ApplicationController
+class PerformancesController < ApplicationController
   before_action :set_performance, only: %i(show)
 
   def index
