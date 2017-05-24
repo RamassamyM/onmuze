@@ -54,7 +54,7 @@ puts "done"
 print "Creating a bar for organizer@onmuze.com......"
 
 #upload photo banner on cloudinary :
-url = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/13754227_648073908693454_4697143827883023656_n.jpg?oh=14ef347236c454b570af07ee082e00b6&oe=59A39F9D"
+url = "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495537104/bar1_ac5odp.jpg"
 bar = {
   name: "L\'Antidote",
   address: "13bis rue Elie Gentrac",
@@ -62,7 +62,7 @@ bar = {
 }
 new_place = Place.new(bar)
 new_place.user = User.first
-# new_place.photo_url = url
+new_place.photo_url = url
 new_place.save!
 puts "done"
 
