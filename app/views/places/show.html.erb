@@ -1,21 +1,30 @@
 <%= render 'shared/banner', image_path: @place.photo.path %>
-
 <div class="container">
-  <div class="text-center">
-    <h1><%= @place.name %></h1>
-  </div>
-  <div>
-    <p><strong>Address : </strong><%= @place.address %></p>
-    <p><strong>Description : </strong><%= @place.description %></p>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">
+            <h1><%= @place.name %></h1>
+          </div>
+          <div>
+            <p><strong>Address : </strong><%= @place.address %></p>
+            <p><strong>Description : </strong><%= @place.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="right-block">
+      </div>
+    </div>
   </div>
 </div>
-<div class="container">
-  <div>
-    <%= link_to "Add a new place", new_place_path, class: "btn btn-primary lg" %>
-  </div>
-  <div>
-    <% @events.each do |event| %>
-    <%= link_to event.scheduled_at, event_path(event) %>
-    <% end %>
-  </div>
+
+<%= render 'shared/_modal' event: @event, place: @place %>
+
+<div>
+  <% @events.each do |event| %>
+  <%= link_to event.scheduled_at, event_path(event) %>
+  <% end %>
 </div>
