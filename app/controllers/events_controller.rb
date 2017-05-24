@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 
   def create
-    raise
   end
 
   def show
