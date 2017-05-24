@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @genres = Genre.all.map(&:event_type).uniq
   end
 
   private

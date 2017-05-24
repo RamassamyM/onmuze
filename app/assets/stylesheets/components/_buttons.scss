@@ -5,7 +5,12 @@
   font-weight: bold;
   background: #6AD58B;
   transition: background 0.3s ease;
-  &:hover {
+  &:hover{
+    text-decoration: none;
+    color: white;
+    background: #34b75d;
+  }
+  &:visited{
     text-decoration: none;
     color: white;
     background: #34b75d;
@@ -20,6 +25,11 @@
   background: #4363b4;
   transition: background 0.3s ease;
   &:hover {
+    text-decoration: none;
+    color: white;
+    background: #283b6c;
+  }
+  &:visited {
     text-decoration: none;
     color: white;
     background: #283b6c;

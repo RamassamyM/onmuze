@@ -7,5 +7,4 @@ module ApplicationHelper
       render 'shared/banner-with-asset', asset_url: image_url('places.jpg')
     end
   end
-
 end
