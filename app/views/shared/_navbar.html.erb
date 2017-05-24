@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "onmuze_logo_symbol_black.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -29,7 +29,10 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <div class="dropdown-toggle user-icon" id="navbar-wagon-menu" data-toggle="dropdown">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </div>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>

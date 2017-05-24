@@ -31,4 +31,7 @@
     </div>
   </div>
 </div>
+
+<% content_for :title, @performance.name %>
 <%= render 'shared/modal', content: 'shared/content_event_modal', title: 'Create an event', modal_id: 'newEventModal', arguments: { event: @event, places: @places } %>
+
