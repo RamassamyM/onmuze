@@ -1,12 +1,11 @@
 .banner {
   color: white;
-  text-align: center;
   height: 100vh;
   background-size: cover;
   display: flex;
   align-items: center;
-  justify-content: center;
   background-position: top center;
+  flex-direction: column;
   h1 {
     font-size: 60px;
     font-weight: bold;
@@ -38,4 +37,12 @@
   img {
     width: 80px;
   }
+}
+
+.banner-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
