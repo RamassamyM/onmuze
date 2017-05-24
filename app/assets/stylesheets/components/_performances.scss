@@ -1,0 +1,29 @@
+.performance-card {
+  position: relative;
+  height: 200px;
+  color: white;
+  box-shadow: 5px 5px 40px rgba(0,0,0,0.4);
+  text-shadow: -2px 2px 8px black;
+  margin: 2%;
+  border-radius: 4px;
+  background-size: cover;
+  transition: 0.3s ease;
+  &:hover {
+    .performance-name {
+      font-size: 24px;
+    }
+  }
+}
+
+.performance-name {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+
+.performance-genre {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
