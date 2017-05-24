@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-  def place_photo(place)
+  def place_show_banner(place)
     if place.photo.present?
-      cl_image_path place.photo.path, crop: :fill
+      render 'shared/banner-with-cloudinary', instance: place
     else
-      asset_path 'places.jpg'
+      render 'shared/banner-with-asset', asset_url: image_url('places.jpg')
     end
   end
 
