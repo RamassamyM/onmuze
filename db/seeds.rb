@@ -54,8 +54,8 @@ end
 puts "done"
 
 # Creating a bar for organizer user
+
 print "Seeding a bar for organizer@onmuze.com"
-# url = "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495556735/pyakb6d5z7akvdupczvo.jpg"
 url = "http://res.cloudinary.com/onmuze/image/upload/v1495556568/m7hytoo3mqyutjbxqpqv.jpg"
 bar = {
   name: "L\'Antidote",
