@@ -6,6 +6,7 @@
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :description %>
+      <%= f.input :photo, label: "Add a photo", as: :attachinary, input_html: { class: "hidden" }, label_html: { class: "btn btn-danger" } %>
       <%= f.submit "Create my event", class: "btn btn-primary" %>
     <% end %>
 </div>
