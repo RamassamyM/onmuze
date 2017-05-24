@@ -11,7 +11,13 @@ class PerformancesController < ApplicationController
                                .select { |p| available_for(p, session[:date]) }
   end
 
-  def show; end
+  def show
+    if @performance.youtube_url != ''
+      @embedded_video = generate_embedded_youtube(@performance.youtube_url)
+    end
+    @event = Event.new
+    @places = Place.all
+  end
 
   private
 
@@ -24,6 +30,19 @@ class PerformancesController < ApplicationController
       :user_id, :category, :name, :description, :address, :youtube_url,
       :facebook_url, :instagram_url, :soundcloud_url, :avatar, :banner
     )
+  end
+
+  def generate_embedded_youtube(youtube_video_url)
+    embed_url = youtube_video_url.match(/^(.+\?v=)(.+)(&.+)$/)
+    if embed_url.nil?
+     embed_url = youtube_video_url.match(/^(.+\.be\/)(.+)$/)
+    end
+    if embed_url.nil?
+      embedded_video = ''
+    else
+      embedded_video = "<iframe width='300' height='200' src='https://www.youtube.com/embed/#{embed_url[2]}' frameborder='0' allowfullscreen></iframe>".html_safe
+    end
+    embedded_video
   end
 
   def available_for(performance, date)

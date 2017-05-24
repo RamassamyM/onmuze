@@ -124,7 +124,7 @@ demo_performance = {
   soundcloud_url: "233433716"
 }
 p = Performance.new(demo_performance)
-p.genre = Genre.find_by_name("Disco")
+p.genre = Genre.find_by_name("Disco/Funk")
 p.user = User.last
 p.save!
 p.banner_url = "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495556570/nenst5rjmgl704nel3jw.jpg"

@@ -11,4 +11,16 @@
     <p>We will promote it</p>
     <%= render 'form' %>
   </div>
+
+  <% if complete_profile? %>
+    <%= render "modal" %>
+  <% end %>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('#myModal').modal('show');
+    });
+  <% end %>
+<% end %>
