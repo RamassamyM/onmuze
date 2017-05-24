@@ -1,3 +1,34 @@
+<%#= render 'shared/banner', image_path: @performance.banner.path %>
 <div class="container">
-  <h1>performances#show</h1>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">
+            <h1><%= @performance.name %></h1>
+          </div>
+          <div>
+            <p><strong>Genre : </strong><%= @performance.genre.event_type %> <%= @performance.genre.name %></p>
+            <p><strong>Address : </strong><%= @performance.address %></p>
+            <p><strong>Description : </strong><%= @performance.description %></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="video-block">
+            <%# @embedded_video %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="right-block">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEventModal">
+        New event
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
+<%= render 'shared/modal', content: 'shared/content_event_modal', title: 'Create an event', modal_id: 'newEventModal', arguments: { event: @event, places: @places } %>
