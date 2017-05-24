@@ -1,0 +1,37 @@
+#signupModal {
+  background-color: black;
+  p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+#closeCross {
+  color: white;
+}
+
+#ownerModalImg {
+  background-image: url("http://res.cloudinary.com/onmuze/image/upload/v1495617362/frrkcgwlft8mseadq5j2.jpg");
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  border: 1px solid #676767;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+#artistModalImg {
+  background-image: url("http://res.cloudinary.com/onmuze/image/upload/v1495617323/oydv6zrjl8w4hkrz7jzi.jpg");
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  border: 1px solid #676767;
+  &:hover {
+    opacity: 0.9;
+  }
+}
