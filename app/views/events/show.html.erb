@@ -1,1 +1,33 @@
-<h1>Events#show</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-7">
+      <h1><%= @event.name %></h1>
+      <h3><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></h3>
+      <p><%= @event.description %></p>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-5">
+      <div id="event-sidebar">
+        <a href="#" class="btn-treehouse-blue">Find artist</a>
+        <ul class="list-unstyled">
+          <% @event.proposals.each do |proposal| %>
+            <% if proposal.status == 'pending' %>
+              <li><span class="text-warning"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-question"></i></span></li>
+            <% elsif proposal.status == 'accepted' %>
+              <li><span class="text-success"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-check"></i></span></li>
+            <% elsif proposal.status == 'refused' %>
+              <li><span class="text-danger"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-close"></i></span></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <a href="#" class="btn-treehouse-green">Promote this event</a>
+    </div>
+  </div>
+
+</div>

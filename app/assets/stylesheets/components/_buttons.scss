@@ -1,0 +1,27 @@
+.btn-treehouse-green {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background: #34b75d;
+  }
+}
+
+.btn-treehouse-blue {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #4363b4;
+  transition: background 0.3s ease;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background: #283b6c;
+  }
+}
