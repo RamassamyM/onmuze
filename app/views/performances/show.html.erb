@@ -24,23 +24,7 @@
     </div>
     <div class="col-sm-4">
       <div class="right-block">
-        <div class="text-center" id="events-list">
-          <% if user_signed_in? %>
-            <h3>My future events</h3>
-            <% current_user.events.each do |event| %>
-              <%= render 'event', event: event %>
-            <% end %>
-          <% end %>
-        </div>
-        <% if user_signed_in? %>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEventModal">
-            New event
-          </button>
-        <% else %>
-          <%= link_to "New event", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-        <% end %>
-        <p>FORM</p>
-        <p>SEND REQUEST</p>
+        <%= right_block_performance_show_render(@performance) %>
       </div>
     </div>
   </div>
