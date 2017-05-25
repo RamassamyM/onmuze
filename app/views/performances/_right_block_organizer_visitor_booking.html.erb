@@ -2,7 +2,9 @@
   <% if user_signed_in? %>
     <h3>My future events</h3>
     <% current_user.events.each do |event| %>
-      <%= render 'event', event: event %>
+      <% link_to event_path(event) do %>
+        <%= render 'event', event: event %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
