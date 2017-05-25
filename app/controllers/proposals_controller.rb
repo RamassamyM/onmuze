@@ -7,6 +7,13 @@ class ProposalsController < ApplicationController
 
   def show; end
 
+  def update
+    @event = Event.find(proposal_params[:event_id])
+    @proposal = Proposal.find(params[:id])
+    @proposal.update(proposal_params)
+    @confirmed_proposals = @event.proposals.where(status: 'confirmed')
+  end
+
   private
 
   def set_proposal
@@ -14,6 +21,6 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:event_id, :performance_id, :status)
+    params.require(:proposal).permit(:id, :status, :event_id)
   end
 end
