@@ -1,5 +1,17 @@
 module ApplicationHelper
 
+  def add_navbar_unless_homepage
+    unless controller_name == "pages"
+      render 'shared/navbar'
+    end
+  end
+
+  def add_modal_after_signup_if_nothing_created
+    if complete_profile?
+      render 'pages/modal'
+    end
+  end
+
   def complete_profile?
     user_not_prompted = user_signed_in? && current_user.places.empty? && current_user.performances.empty? && !session[:fully_registered]
     session[:fully_registered] = true if user_not_prompted
