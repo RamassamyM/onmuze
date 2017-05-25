@@ -1,3 +1,4 @@
+<!-- TO use this modal : define parameters : title, content (the path to the content partial) and arguments (a hash with as many parameters needed by your content partial)-->
 <div class="modal fade" id=<%= modal_id %> tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -9,7 +10,7 @@
         <%= render content, arguments: arguments %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" id="close-modal" data-dismiss="modal">Cancel</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
