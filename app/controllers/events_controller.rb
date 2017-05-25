@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 
   def create
-
   end
 
   def show
@@ -9,7 +8,7 @@ class EventsController < ApplicationController
     @genres = Genre.all.map(&:event_type).uniq
   end
 
-  private
+private
 
   def events_params
     params.require(:event).permit(:name, :scheduled_at, :description, :place_id)

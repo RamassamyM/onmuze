@@ -1,10 +1,16 @@
 <div class="container">
-  <h1>performances#index</h1>
-  <% @performances.each do |performance| %>
-      <div>
-        <h3><%= performance.name %></h3>
-        <h5><%= performance.address %></h5>
-        <p><%= performance.description %></p>
+  <div class="row">
+    <% @performances.each do |performance| %>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <%= link_to performance_path(performance) do %>
+          <div class="performance-card" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('<%= cl_image_path performance.avatar.path, height: 250 %>');">
+            <h3 class="performance-name"><%= performance.name %></h3>
+            <h5 class="performance-genre"><%= performance.genre.name %></h5>
+          </div>
+        <% end %>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+<% content_for :title, "Find an artist" %>

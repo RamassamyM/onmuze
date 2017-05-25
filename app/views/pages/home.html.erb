@@ -5,10 +5,24 @@
 
   <div class="banner-content text-center">
     <div class="logo">
-      onmuze<%= image_tag "logo.svg" %>
+      <%= image_tag "onmuze_logo.png" %>
     </div>
     <h1>Create your event</h1>
     <p>We will promote it</p>
     <%= render 'form' %>
   </div>
+
+  <% if complete_profile? %>
+    <%= render "modal" %>
+  <% end %>
 </div>
+
+<% content_for :title, "Welcome to onmuze" %>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $('#myModal').modal('show');
+    });
+  <% end %>
+<% end %>

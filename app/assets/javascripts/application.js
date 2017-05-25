@@ -5,4 +5,6 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require bootstrap-datepicker
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
