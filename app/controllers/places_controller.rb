@@ -20,7 +20,6 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @event = Event.new
-    @events = @place.events
   end
 
   private

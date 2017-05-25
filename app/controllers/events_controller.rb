@@ -1,6 +1,13 @@
 class EventsController < ApplicationController
 
   def create
+    @place = Place.find(params[:place_id])
+    @event = @place.events.new(events_params)
+    if @event.save
+      redirect_to place_path(@place)
+    else
+      render 'places/show'
+    end
   end
 
   def show
