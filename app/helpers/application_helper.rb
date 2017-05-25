@@ -6,6 +6,14 @@ module ApplicationHelper
     return user_not_prompted
   end
 
+  def owner?
+    !current_user.places.empty?
+  end
+
+  def artist?
+    !current_user.performances.empty?
+  end
+
   def place_show_banner(place)
     if place.photo.present?
       render 'shared/banner-with-cloudinary', instance: place
