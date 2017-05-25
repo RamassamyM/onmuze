@@ -12,11 +12,12 @@ class PerformancesController < ApplicationController
   end
 
   def show
+    session[:last_viewed_performance_id] = @performance.id
     if @performance.youtube_url != ''
       @embedded_video = generate_embedded_youtube(@performance.youtube_url)
     end
     @event = Event.new
-    @places = Place.all
+    @proposal = Proposal.new
   end
 
   private

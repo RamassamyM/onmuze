@@ -4,4 +4,5 @@ class Event < ApplicationRecord
   has_many :performances, through: :proposals
   has_attachment :photo
   validates :scheduled_at, presence: true
+  validates :place_id, presence: true
 end

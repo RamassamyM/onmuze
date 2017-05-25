@@ -1,0 +1,10 @@
+<% if @event.errors.any? %>
+  $('.modal-body').html("<%= j render 'content_event_modal', arguments: { event: @event, places: current_user.places } %>");
+  $('.datetimepicker4').datetimepicker({ format: 'DD-MM-YYYY HH:mm' });
+<% else %>
+  var new_event = $("<%= j render 'performances/event', event: @event %>").hide();
+  $('#events-list').append(new_event);
+  new_event.slideDown();
+  $('#close-modal').click();
+  $('.modal-body').html("<%= j render 'content_event_modal', arguments: { event: Event.new, places: current_user.places } %>");
+<% end %>

@@ -1,0 +1,13 @@
+  <div class="row">
+    <div class="col-sm-8">
+      <div id="event-show">
+        <span><%= event.name %></span>
+        <span><%= event.scheduled_at.strftime("%d/%m/%Y") if event.scheduled_at %></span>
+        <span><%= event.scheduled_at.strftime("%H:%M") if event.scheduled_at %></span>
+        <% if event.photo? %>
+          <%= cl_image_tag event.photo.path, width: 80, height: 80, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+

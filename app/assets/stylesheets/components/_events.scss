@@ -1,0 +1,23 @@
+#event-sidebar {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: auto;
+}
+
+#event-search-artist {
+  text-align: center;
+  background: #dedede;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+}
+
+#proposals-list {
+  background: #e8ecd3;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+}
