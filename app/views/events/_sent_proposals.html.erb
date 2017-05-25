@@ -1,0 +1,14 @@
+<ul class="list-unstyled">
+  <% @event.proposals.each do |proposal| %>
+    <% if proposal.status == 'pending' %>
+      <li><span class="text-warning"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-question" title="Pending"></i></span></li>
+    <% elsif proposal.status == 'accepted' %>
+      <li>
+        <span class="text-success"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-check" title="Accepted"></i></span>
+        <%= link_to "Confirm", proposal_path(proposal, proposal: { event_id: @event.id, status: 'confirmed' }), class: "btn btn-primary", method: :put, remote: true %>
+      </li>
+    <% elsif proposal.status == 'declined' %>
+      <li><span class="text-danger"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-close" title="Declined"></i></span></li>
+    <% end %>
+  <% end %>
+</ul>

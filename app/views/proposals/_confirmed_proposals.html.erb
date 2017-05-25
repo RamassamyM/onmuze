@@ -1,0 +1,8 @@
+<% unless @confirmed_proposals.empty? %>
+  <h4>Featuring :</h4>
+  <ul class="list-unstyled">
+    <% @confirmed_proposals.each do |proposal| %>
+      <li><%= link_to proposal.performance.name, performance_path(proposal.performance), target: :_blank %></li>
+    <% end %>
+  </ul>
+<% end %>
