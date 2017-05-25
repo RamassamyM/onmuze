@@ -1,32 +1,47 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
+<div class="navbar-wagon custom-navbar-wagon">
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "onmuze_logo_symbol_black.png" %>
   <% end %>
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+  <% if user_signed_in? %>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div class="btn-group">
+        <div class="dropdown-toggle custom-dropdown-toggle user-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-plus-circle" aria-hidden="true" style="color: #EF5257;"></i>
+        </div>
+        <div class="dropdown-menu custom-dropdown-menu-add">
+          <%= link_to "Add a place", new_place_path, class: "dropdown-item" %>
+          <%= link_to "Add a performance", new_performance_path, class: "dropdown-item" %>
+        </div>
+      </div>
 
-    <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
-
-      <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+      <% if owner? %>
+        <div class="btn-group">
+          <div class="dropdown-toggle custom-dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            my places <i class="fa fa-caret-down" aria-hidden="true" style="color: #EF5257;"></i>
+          </div>
+          <div class="dropdown-menu custom-dropdown-menu">
+            <% current_user.places.each do |place| %>
+              <%= link_to place.name, place_path(place), class: "dropdown-item" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
 
-      <!-- Profile picture and dropdown -->
+      <% if artist? %>
+        <div class="btn-group">
+          <div class="dropdown-toggle custom-dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            my performances <i class="fa fa-caret-down" aria-hidden="true" style="color: #EF5257;"></i>
+          </div>
+          <div class="dropdown-menu custom-dropdown-menu">
+            <% current_user.performances.each do |performance| %>
+              <%= link_to performance.name, performance_path(performance), class: "dropdown-item" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <div class="dropdown-toggle user-icon" id="navbar-wagon-menu" data-toggle="dropdown">
@@ -34,11 +49,6 @@
           </div>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
@@ -52,28 +62,56 @@
           </ul>
         </div>
       </div>
-
-    <% else %>
-
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-    <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
     </div>
+
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to root_path do %>
+              <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to new_place_path do %>
+              <i class="fa fa-plus-circle"></i> Add a place
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to new_performance_path do %>
+              <i class="fa fa-plus-circle"></i> Add a performance
+            <% end %>
+          </li>
+
+          <% if owner? %>
+            <hr>
+            <% current_user.places.each do |place| %>
+              <li><%= link_to place.name, place_path(place) %></li>
+            <% end %>
+          <% end %>
+
+          <% if artist? %>
+            <hr>
+            <% current_user.performances.each do |performance| %>
+              <li><%= link_to performance.name, performance_path(performance) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+  <% else %>
+    <%= link_to "Login / Sign up", new_user_session_path, class: "login-btn" %>
+  <% end %>
   </div>
 </div>
 
