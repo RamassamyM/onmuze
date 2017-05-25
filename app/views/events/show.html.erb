@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-7">
+    <div class="col-xs-12 col-sm-12 col-md-8">
       <h1><%= @event.place.name %></h1>
       <h3><%= @event.name %> <small><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></small></h3>
       <p><%= @event.description %></p>
@@ -11,8 +11,8 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-5">
-      <div id="event-sidebar">
+    <div class="col-xs-12 col-sm-12 col-md-4">
+      <div id="event-sidebar" class="right-block">
         <div id="event-search-artist">
           <h5>Add a new artist for this event</h5>
           <%= render 'find_artist_form' %>
