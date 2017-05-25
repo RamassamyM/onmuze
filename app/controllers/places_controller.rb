@@ -1,11 +1,15 @@
 class PlacesController < ApplicationController
 
+  def index
+    @places = current_user.places
+  end
+
   def new
     @place = Place.new
   end
 
   def create
-    @place = Place.new(place_params)
+    @place = current_user.places.new(place_params)
     if @place.save
       redirect_to place_path(@place)
     else
@@ -15,7 +19,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @events = @place.events
+    @event = Event.new
   end
 
   private
