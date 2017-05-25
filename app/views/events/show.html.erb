@@ -10,17 +10,12 @@
       <div id="event-sidebar">
         <div id="event-search-artist">
           <h5>Add a new artist for this event?</h5>
-          <%= simple_form_for :event_type do |f| %>
-          <%= f.input :event_type, collection: @genres, input_html: { class: "input-md" }, label_html: { class: "hidden" }, selected: 1 %>
+          <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
+            <%= f.input :event_type, collection: @genres, input_html: { class: "input-sm" }, label_html: { class: "hidden" }, selected: 1 %>
+            <%= f.hidden_field :date, value: @event.scheduled_at %>
+            <%= f.hidden_field :address, value: @event.place.address %>
+            <%= f.submit "Find an artist", class: "btn-treehouse-blue" %>
           <% end %>
-          <%= link_to "Find an artist",
-          performances_path( performance: {
-            date: @event.scheduled_at,
-            address: @event.place.address,
-            event_type: "Music"
-          }
-          ),
-          class: "btn-treehouse-blue" %>
         </div>
         <div id="proposals-list">
           <h5>Your sent proposals</h5>
@@ -35,7 +30,7 @@
             <% end %>
             <% end %>
           </ul>
-          </div>
+        </div>
       </div>
     </div>
   </div>
