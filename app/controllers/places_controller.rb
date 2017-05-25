@@ -1,5 +1,9 @@
 class PlacesController < ApplicationController
 
+  def index
+    @places = current_user.places
+  end
+
   def new
     @place = Place.new
   end
@@ -15,7 +19,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @events = @place.events
+    @event = Event.new
   end
 
   private
