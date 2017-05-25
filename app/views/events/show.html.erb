@@ -1,15 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-7">
-      <h1><%= @event.name %></h1>
-      <h3><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></h3>
+      <h1><%= @event.place.name %></h1>
+      <h3><%= @event.name %> <small><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></small></h3>
       <p><%= @event.description %></p>
+      <% unless @confirmed_proposals.empty? %>
+        <h4>Featuring :</h4>
+        <ul class="list-unstyled">
+          <% @confirmed_proposals.each do |proposal| %>
+            <li><%= link_to proposal.performance.name, performance_path(proposal.performance), target: :_blank %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-5">
       <div id="event-sidebar">
         <div id="event-search-artist">
-          <h5>Add a new artist for this event?</h5>
+          <h5>Add a new artist for this event</h5>
           <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
             <%= f.input :event_type, collection: @genres, input_html: { class: "input-sm" }, label_html: { class: "hidden" }, selected: 1 %>
             <%= f.hidden_field :date, value: @event.scheduled_at %>
@@ -21,13 +29,16 @@
           <h5>Your sent proposals</h5>
           <ul class="list-unstyled">
             <% @event.proposals.each do |proposal| %>
-            <% if proposal.status == 'pending' %>
-            <li><span class="text-warning"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-question"></i></span></li>
-            <% elsif proposal.status == 'accepted' %>
-            <li><span class="text-success"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-check"></i></span></li>
-            <% elsif proposal.status == 'refused' %>
-            <li><span class="text-danger"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-close"></i></span></li>
-            <% end %>
+              <% if proposal.status == 'pending' %>
+                <li><span class="text-warning"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-question"></i></span></li>
+              <% elsif proposal.status == 'accepted' %>
+                <li>
+                  <span class="text-success"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-check"></i></span>
+                  <%= link_to "Confirm", class: "btn btn-primary" %>
+                </li>
+              <% elsif proposal.status == 'refused' %>
+                <li><span class="text-danger"><%= link_to proposal.performance.name, performance_path(proposal.performance) %> <i class="fa fa-close"></i></span></li>
+              <% end %>
             <% end %>
           </ul>
         </div>

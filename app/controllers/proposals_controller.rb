@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: %i(show)
+  before_action :set_proposal, only: %i(show update)
 
   def index
     @proposals = current_user.proposals
