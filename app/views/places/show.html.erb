@@ -6,17 +6,19 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="text-center">
+          <div class="place-content">
             <h1><%= @place.name %></h1>
-          </div>
-          <div>
-            <p><strong>Address : </strong><%= @place.address %></p>
-            <p><strong>Description : </strong><%= @place.description %></p>
+            </div>
+            <div>
+              <p><strong>Address : </strong><%= @place.address %></p>
+              <p><strong>Description : </strong><%= @place.description %></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-4">
-      <div class="right-block">
+      <div class="right-block text-center">
         <button type="button" id="new-event-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEventModalPlaceShow">
           New event
         </button>
@@ -26,8 +28,12 @@
             <div class="row">
               <div class="col-sm-8">
                 <div id="events-list">
-                  <p><%= event.name %></p>
-                  <p><%= event.scheduled_at %></p>
+                  <h3><%= link_to event.name, event_path(event) %></h3>
+                  <p><%= event.scheduled_at.strftime("%d/%m/%Y") if event.scheduled_at %></p>
+                  <p><%= event.scheduled_at.strftime("%H:%M") if event.scheduled_at %></p>
+                  <% if event.photo? %>
+                    <%= cl_image_tag event.photo.path, width: 100, height: 100, crop: :fill %>
+                  <% end %>
                 </div>
               </div>
             </div>

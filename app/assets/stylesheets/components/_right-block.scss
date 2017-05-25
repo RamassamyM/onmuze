@@ -1,7 +1,17 @@
 .right-block {
+  margin-top: 30px;
+  border-radius: 10px;
   width: 100%;
-  height: 800px;
-  background-color: $blue;
+  color: white;
+  background-color: #444444;
+  padding: 20px;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: white;
+    font-weight: bold;
+  }
 }
 
 .video-block {
@@ -9,3 +19,10 @@
   height: 300px;
   background-color: $red;
 }
+
+#events-list {
+  margin-left: 50%;
+  margin-bottom: 30px;
+}
+
+

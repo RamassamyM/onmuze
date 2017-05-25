@@ -3,5 +3,5 @@
   <%= f.input :description, label: false, placeholder: "Description" %>
   <%= f.input :scheduled_at, as: :string, input_html: { class: "datetimepicker4" }, label: false, placeholder: "Choose date and time" %>
   <%= f.input :place_id, collection: arguments[:places], prompt: "Choose your place" %>
-  <%= f.submit "Create my event", class: "btn btn-primary" %>
+  <%= f.submit "Create my event", class: "btn btn-success" %>
 <% end %>
