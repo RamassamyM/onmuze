@@ -36,12 +36,15 @@
     border: 0;
 }
 
+#add-dropdown {
+  left: -400% !important;
+}
+
 .custom-dropdown-menu, .custom-dropdown-menu-add {
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 5px;
   box-shadow: 10px 10px 40px #000;
-  left: -400% !important;
 }
 
 .custom-dropdown-menu {
