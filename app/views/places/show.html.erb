@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<%= render 'shared/modal', content: 'shared/content_event_modal_places_show', title: 'Create an event', modal_id: 'newEventModalPlaceShow', arguments: { place: @place, event: @event } %>
+<%= render 'shared/modal', content: 'events/content_event_modal_places_show', title: 'Create an event', modal_id: 'newEventModalPlaceShow', arguments: { place: @place, event: @event } %>
 
  <% if @event.errors.any? %>
     <% content_for(:after_js) do %>

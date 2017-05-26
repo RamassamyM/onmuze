@@ -1,5 +1,8 @@
-<%= render 'shared/banner-with-cloudinary', instance: @event %>
-
+<% if @event.photo %>
+  <%= render 'shared/banner-with-cloudinary', instance: @event %>
+<% else %>
+  <%= render 'shared/banner-with-asset', asset_url: image_url('places.jpg') %>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8">
@@ -30,5 +33,4 @@
       <a href="#" class="btn-treehouse-green">Promote this event</a>
     </div>
   </div>
-
 </div>
