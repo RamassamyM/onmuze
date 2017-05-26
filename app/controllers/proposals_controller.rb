@@ -9,7 +9,7 @@ class ProposalsController < ApplicationController
 
   def create
     @performance = Performance.find(params[:performance_id])
-    @proposal = @performance.proposals.new(status: 'pending', event_id: proposal_params[:event_id])
+    @proposal = @performance.proposals.new(event_id: proposal_params[:event_id])
     if @proposal.save
       @event = @proposal.event
       redirect_to event_path(@event)
