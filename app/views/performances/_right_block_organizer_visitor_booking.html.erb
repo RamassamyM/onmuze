@@ -1,19 +1,19 @@
 <% if user_signed_in? %>
-  <div>
+  <div class="top-right-block text-center">
     <% if current_user.places.present? %>
       <%= render 'performances/div_new_event' %>
     <% else %>
       <%= render 'performances/div_new_place' %>
     <% end %>
   </div>
-  <div>
+  <div class="bottom-right-block text-center">
     <%= render 'performances/request_form', performance: performance, proposal: proposal %>
   </div>
 <% else %>
-  <div>
+  <div class="top-right-block text-center">
     <%= render 'performances/div_log_or_sign' %>
   </div>
-  <div>
+  <div class="bottom-right-block text-center">
     <%= render 'performances/request_fake_form' %>
   </div>
 <% end %>
