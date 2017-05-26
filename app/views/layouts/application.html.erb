@@ -10,13 +10,17 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <% unless controller_name == "pages" %>
-      <%= render 'shared/navbar' %>
-    <% end %>
+
+    <%= add_navbar_unless_homepage %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <%= add_modal_after_signup_if_nothing_created %>
+
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
   </body>
 </html>
+
+
+

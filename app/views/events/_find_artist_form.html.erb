@@ -1,0 +1,6 @@
+<%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
+  <%= f.input :event_type, collection: @genres, input_html: { class: "input-sm" }, label_html: { class: "hidden" }, selected: 1 %>
+  <%= f.hidden_field :date, value: @event.scheduled_at %>
+  <%= f.hidden_field :address, value: @event.place.address %>
+  <%= f.submit "Find an artist", class: "btn-treehouse-blue" %>
+<% end %>
