@@ -13,7 +13,7 @@ class ProposalsController < ApplicationController
     if @proposal.save
       @event = @proposal.event
       redirect_to event_path(@event)
-      UserMailer.send_proposal(@performance, @proposal.event).deliver_now
+      #UserMailer.send_proposal(@performance, @proposal.event).deliver_now
     else
       @event = Event.new
       render 'performances/show'
