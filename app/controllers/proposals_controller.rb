@@ -7,11 +7,23 @@ class ProposalsController < ApplicationController
 
   def show; end
 
+  def create
+    @performance = Performance.find(params[:performance_id])
+    @proposal = @performance.proposals.new(status: "pending", event_id: proposal_params[:event_id])
+    if @proposal.save
+      @event = @proposal.event
+      redirect_to event_path(@event)
+    else
+      @event = Event.new
+      render 'performances/show'
+    end
+  end
+
   def update
     @event = Event.find(proposal_params[:event_id])
     @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
-    @confirmed_proposals = @event.proposals.where(status: 'confirmed')
+    @confirmed_proposals = @event.proposals.confirmed
   end
 
   private
@@ -21,6 +33,7 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:id, :status, :event_id)
+    params.require(:proposal).permit(:status, :event_id)
   end
 end
+

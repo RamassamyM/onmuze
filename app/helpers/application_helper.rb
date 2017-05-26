@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def place_show_banner(place)
-    if place.photo.present?
+    if place.photo
       render 'shared/banner-with-cloudinary', instance: place
     else
       render 'shared/banner-with-asset', asset_url: image_url('places.jpg')
@@ -42,4 +42,13 @@ module ApplicationHelper
       render 'right_block_organizer_visitor_booking'
     end
   end
+
+  def event_show_card(event)
+    if event.photo
+      cl_image_path event.photo.path, width: 200, height: 100, crop: :fill
+    else
+      image_url('event.jpg')
+    end
+  end
+
 end
