@@ -8,10 +8,21 @@ class ProposalsController < ApplicationController
   def show; end
 
   def update
+    @performance = Performance.find(params[:id])
     @event = Event.find(proposal_params[:event_id])
     @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
-    @confirmed_proposals = @event.proposals.where(status: 'confirmed')
+    @confirmed_proposals = @event.proposals.confirmed
+    if @performance.user == current_user
+      respond_to do |format|
+        format.js { render action: :status }
+      end
+    elsif @event.place.user == current_user
+      respond_to do |format|
+        format.js
+      end
+    end
+
   end
 
   private
@@ -21,6 +32,6 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params.require(:proposal).permit(:id, :status, :event_id)
+    params.require(:proposal).permit(:status, :event_id)
   end
 end
