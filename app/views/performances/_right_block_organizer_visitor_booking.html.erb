@@ -1,19 +1,20 @@
-<div class="text-center" id="events-list">
-  <% if user_signed_in? %>
-    <h3>My future events</h3>
-    <% current_user.events.each do |event| %>
-      <%= render 'event', event: event %>
+<% if user_signed_in? %>
+  <div>
+    <% if current_user.places.present? %>
+      <%= render 'performances/div_new_event' %>
+    <% else %>
+      <%= render 'performances/div_new_place' %>
     <% end %>
-  <% end %>
-</div>
-<div>
-  <% if user_signed_in? %>
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEventModal">
-      New event
-    </button>
-  <% else %>
-    <%= link_to "New event", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-  <% end %>
-  <p>FORM</p>
-  <p>SEND REQUEST</p>
-</div>
+  </div>
+  <div>
+    <%= render 'performances/request_form', performance: performance, proposal: proposal %>
+  </div>
+<% else %>
+  <div>
+    <%= render 'performances/div_log_or_sign' %>
+  </div>
+  <div>
+    <%= render 'performances/request_fake_form' %>
+  </div>
+<% end %>
+
