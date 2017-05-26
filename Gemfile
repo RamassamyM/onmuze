@@ -10,6 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'geocoder'
 gem 'faker', github: 'stympy/faker'
+gem 'postmark-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'
