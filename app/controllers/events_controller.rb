@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
-
   def create
-    if events_params[:place_id]
+    if event_params[:place_id]
       create_an_event_in_performance_show
     else
       create_an_event_in_place_show
@@ -11,7 +10,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @genres = Genre.all.map(&:event_type).uniq
-    @confirmed_proposals = @event.proposals.where('status = ?', 'confirmed')
+    @confirmed_proposals = @event.proposals.confirmed
   end
 
   private
@@ -21,12 +20,25 @@ class EventsController < ApplicationController
   end
 
   def create_an_event_in_performance_show
-    @event = Event.new(events_params)
-    @event.scheduled_at = DateTime.parse(events_params[:scheduled_at]) unless events_params[:scheduled_at].empty?
+    @event = Event.new(event_params)
+    modify_event_data(@event, event_params[:scheduled_at])
     if @event.save
       redirect_after_saving_event_in_performance
     else
       redirect_without_saving_event_in_performance
+    end
+  end
+
+  def modify_event_data(event, scheduled_at)
+    unless scheduled_at.empty?
+      event.scheduled_at = DateTime.parse(scheduled_at)
+      auto_generate_event_name(event)
+    end
+  end
+
+  def auto_generate_event_name(event)
+    if event.name.empty?
+      event.name = event.scheduled_at.strftime('%d-%m-%Y') + " at " + event.place.name
     end
   end
 
@@ -49,7 +61,7 @@ class EventsController < ApplicationController
 
   def create_an_event_in_place_show
     @place = Place.find(params[:place_id])
-    @event = @place.events.new(events_params)
+    @event = @place.events.new(event_params)
     if @event.save
       redirect_to place_path(@place)
     else
