@@ -1,1 +1,10 @@
-Hello, <strong><%= @performance.name %></strong>, you received a new proposal
+<h1>Onmuze</h1>
+
+Hello, <strong><%= @performance.name %></strong>, you received a new proposal :
+<ul>
+  <li><strong>Place:</strong> <%= @place.name %></li>
+  <li><strong>Event:</strong> <%= @event.name %></li>
+  <li><strong>Date:</strong> <%= @event.scheduled_at.strftime("%A %d, %B %Y") %></li>
+</ul>
+<%= link_to 'Please follow this link to accept or decline this invitation', performance_url(@performance) %>
+  

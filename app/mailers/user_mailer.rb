@@ -1,10 +1,12 @@
 class UserMailer < ApplicationMailer
-  def send_proposal(performance)
+  def send_proposal(performance, event)
     # A proposal is sent to a performance by an event
     @performance = performance
+    @event = event
+    @place = event.place
     @user = @performance.user
 
-    mail to: @user.email, subject: 'New OnMuze proposal'
+    mail to: @user.email, subject: 'New Onmuze proposal'
   end
 
   def welcome(user)

@@ -8,7 +8,8 @@ class UserMailerPreview < ActionMailer::Preview
     # A proposal is sent to a performance by an event
     @performance = Performance.find(55)
     @user = @performance.user
+    @event = Event.find(9)
 
-    UserMailer.send_proposal(@performance)
+    UserMailer.send_proposal(@performance, @event)
   end
 end
