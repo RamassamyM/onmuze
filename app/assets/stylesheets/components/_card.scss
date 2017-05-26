@@ -6,12 +6,23 @@
   position: relative;
   width: 100%;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  &:hover {
+    opacity: 0.7;
+    .card-name h3 {
+      font-size: 30px;
+    }
+    .card-description p {
+      font-size: 18px;
+    }
+  }
 }
+
 .card-name {
   position: absolute;
   text-transform: uppercase;
   width: 100%
 }
+
 .card-description {
   position: absolute;
   width: 100%;
@@ -24,16 +35,3 @@
   font-size: 16px;
   line-height: 12px
   }
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index:2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover{
-  opacity: 0.1;
-}
