@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :scheduled_at, :description, :place_id)
+    params.require(:event).permit(:name, :scheduled_at, :description, :place_id, :photo)
   end
 
   def create_an_event_in_performance_show
