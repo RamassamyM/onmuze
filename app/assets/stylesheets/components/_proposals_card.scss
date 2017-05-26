@@ -1,0 +1,71 @@
+.my-proposals {
+  width: 95%;
+  margin: 4px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px black;
+}
+
+.proposal-body {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
+
+.proposal-photo {
+  flex: 0 0 50%;
+}
+
+.proposal-img {
+  width: 94%;
+  margin-left: 3%;
+  border-radius: 5px;
+  &:hover {
+  opacity: 0.9;
+  }
+}
+
+.proposal-content {
+  flex: 1 1 auto;
+  p {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+  }
+  h6 {
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.proposal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #999;
+  p {
+    &:hover {
+    color: #2C2C2C;
+    }
+  }
+}
+
+.pending {
+  color: $orange !important;
+}
+
+.accepted {
+  color: $green !important;
+}
+
+.confirmed {
+  color: $blue !important;
+}
+
+.declined {
+  color: $red !important;
+}

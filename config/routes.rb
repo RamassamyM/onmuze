@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :events, only: %i(index show create)
   end
   resources :events, only: %i(create)
-  resources :proposals, only: %i(update confirm)
+  resources :proposals, only: %i(update)
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
 end

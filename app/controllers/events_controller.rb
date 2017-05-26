@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   def create
     if event_params[:place_id]
       create_an_event_in_performance_show
@@ -11,7 +10,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @genres = Genre.all.map(&:event_type).uniq
-    @confirmed_proposals = @event.proposals.where('status = ?', 'confirmed')
+    @confirmed_proposals = @event.proposals.confirmed
   end
 
   private
