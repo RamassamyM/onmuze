@@ -41,7 +41,7 @@ class PerformancesController < ApplicationController
     if embed_url.nil?
       embedded_video = ''
     else
-      embedded_video = "<iframe width='300' height='200' src='https://www.youtube.com/embed/#{embed_url[2]}' frameborder='0' allowfullscreen></iframe>"
+      embedded_video = "<iframe width='480' height='270' src='https://www.youtube.com/embed/#{embed_url[2]}' frameborder='0' allowfullscreen></iframe>"
     end
     embedded_video
   end
