@@ -8,7 +8,6 @@ class ProposalsController < ApplicationController
   def show; end
 
   def update
-    # byebug
     @event = Event.find(proposal_params[:event_id])
     @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
