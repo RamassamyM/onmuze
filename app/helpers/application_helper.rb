@@ -15,7 +15,7 @@ module ApplicationHelper
   def complete_profile?
     user_not_prompted = user_signed_in? && current_user.places.empty? && current_user.performances.empty? && !session[:fully_registered]
     session[:fully_registered] = true if user_not_prompted
-    return user_not_prompted
+    user_not_prompted
   end
 
   def owner?
@@ -34,12 +34,11 @@ module ApplicationHelper
     end
   end
 
-  def right_block_performance_show_render(performance)
-    @performance = performance
-    if current_user == @performance.user
-      render 'right_block_artist_request'
+  def right_block_performance_show_render(performance, proposal)
+    if current_user == performance.user
+      render 'performances/right_block_artist_request'
     else
-      render 'right_block_organizer_visitor_booking'
+      render 'performances/right_block_organizer_visitor_booking', performance: performance, proposal: proposal
     end
   end
 
