@@ -36,7 +36,7 @@ class PerformancesController < ApplicationController
   def generate_embedded_youtube(youtube_video_url)
     embed_url = youtube_video_url.match(/^(.+\?v=)(.+)(&.+)$/)
     if embed_url.nil?
-     embed_url = youtube_video_url.match(/^(.+\.be\/)(.+)$/)
+      embed_url = youtube_video_url.match(/^(.+\.be\/)(.+)$/)
     end
     if embed_url.nil?
       embedded_video = ''
