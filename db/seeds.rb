@@ -132,12 +132,10 @@ p.avatar_url = "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_500/v149
 puts ".done"
 
 #Creating proposal demo
-statuses = ["pending", "accepted", "refused", "confirmed"]
 print "Seeding demo proposal"
 new_proposal = Proposal.new
 new_proposal.event = Event.first
 new_proposal.performance = Performance.find_by_name('Snawt')
-new_proposal.status = statuses[0]
 new_proposal.save!
 puts ".done"
 
