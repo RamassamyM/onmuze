@@ -125,19 +125,17 @@ demo_performance = {
 }
 p = Performance.new(demo_performance)
 p.genre = Genre.find_by_name("Disco/Funk")
-p.user = User.last
+p.user = User.find_by_email("artist@onmuze.com")
 p.save!
 p.banner_url = "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495556570/nenst5rjmgl704nel3jw.jpg"
 p.avatar_url = "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_500/v1495556571/zl8hjp66qpy4xkyccqn0.jpg"
 puts ".done"
 
 #Creating proposal demo
-statuses = ["pending", "accepted", "refused", "confirmed"]
 print "Seeding demo proposal"
 new_proposal = Proposal.new
 new_proposal.event = Event.first
 new_proposal.performance = Performance.find_by_name('Snawt')
-new_proposal.status = statuses[0]
 new_proposal.save!
 puts ".done"
 

@@ -2,9 +2,10 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:300,400,700|Raleway:100,300,400,500,700");
 $base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+$header-font: "Montserrat", "Helvetica", "sans-serif";
+$sub-header-font: "Raleway", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -24,11 +25,16 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color-red: #D23333;
+$brand-color-blue: #91e9f0;
+$brand-color-green: #00f6d2;
 
-$red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
+$red: #ef5257;
+$blue: #43b5f6;
+$yellow: #feef61;
+$orange: #fba674;
+$green: #0AE7C6;
 $gray: #000000;
+$black: #0a1814;
+$dark-gray: #414141;
+$light-gray: #eeeeee;

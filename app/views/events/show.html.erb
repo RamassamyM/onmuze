@@ -1,13 +1,13 @@
 <% if @event.photo %>
   <%= render 'shared/banner-with-cloudinary', instance: @event %>
 <% else %>
-  <%= render 'shared/banner-with-asset', asset_url: image_url('places.jpg') %>
+  <%= render 'shared/banner-with-asset', asset_url: image_url('event.jpg') %>
 <% end %>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8">
-      <h1><%= @event.place.name %></h1>
-      <h3><%= @event.name %> <small><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></small></h3>
+      <h1><%= @event.name %></h1>
+      <h3><%= @event.place.name%> <small><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></small></h3>
       <p><%= @event.description %></p>
       <div id="confirmed_proposals">
         <%= render 'proposals/confirmed_proposals' %>
@@ -15,16 +15,11 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-4">
-      <div id="event-sidebar" class="right-block">
-        <div id="event-search-artist">
-          <h5>Add a new artist for this event</h5>
-          <%= render 'find_artist_form' %>
-        </div>
-        <div id="proposals-list">
-          <h5>Your sent proposals</h5>
-          <%= render 'sent_proposals' %>
-        </div>
-      </div>
+      <% if @event.place.user == current_user %>
+        <%= render 'events/event_owner_sidebar' %>
+      <% else %>
+        <!-- render google map (Louise) -->
+      <% end %>
     </div>
   </div>
   <hr>
