@@ -1,4 +1,10 @@
-<%#= render 'shared/banner', image_path: @performance.banner.path %>
+<% if @performance.banner %>
+  <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @performance.banner.path %>');">
+</div>
+<% else %>
+  <%= render 'shared/banner-with-asset', asset_url: image_url('artist.png') %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
