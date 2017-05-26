@@ -14,7 +14,7 @@ class PerformancesController < ApplicationController
   def show
     session[:last_viewed_performance_id] = @performance.id
     if @performance.youtube_url != ''
-      @embedded_video = generate_embedded_youtube(@performance.youtube_url)
+      @embedded_video = generate_embedded_youtube(@performance.youtube_url).html_safe
     end
     @event = Event.new
     @proposal = Proposal.new
@@ -41,7 +41,7 @@ class PerformancesController < ApplicationController
     if embed_url.nil?
       embedded_video = ''
     else
-      embedded_video = "<iframe width='300' height='200' src='https://www.youtube.com/embed/#{embed_url[2]}' frameborder='0' allowfullscreen></iframe>".html_safe
+      embedded_video = "<iframe width='300' height='200' src='https://www.youtube.com/embed/#{embed_url[2]}' frameborder='0' allowfullscreen></iframe>"
     end
     embedded_video
   end
