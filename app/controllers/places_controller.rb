@@ -1,5 +1,4 @@
 class PlacesController < ApplicationController
-
   def index
     @places = current_user.places
   end
@@ -27,5 +26,4 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(:name, :address, :description, :photo)
   end
-
 end
