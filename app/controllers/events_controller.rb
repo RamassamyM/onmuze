@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @genres = Genre.all.map(&:event_type).uniq
-    @confirmed_proposals = @event.proposals.where('status = ?', 'confirmed')
+    @confirmed_proposals = @event.proposals.confirmed
   end
 
   private

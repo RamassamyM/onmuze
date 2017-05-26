@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-sm-12">
     <div id="events-list">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event_show_card(event) %>');">
         <div class="card-name">
@@ -9,7 +9,6 @@
           <p><%= event.scheduled_at.strftime("%d/%m/%Y") if event.scheduled_at %></p>
           <p><%= event.scheduled_at.strftime("%H:%M") if event.scheduled_at %></p>
         </div>
-        <img class="card-user avatar" src="user.jpg">
       </div>
     </div>
   </div>

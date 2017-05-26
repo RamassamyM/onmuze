@@ -44,10 +44,10 @@ module ApplicationHelper
   end
 
   def event_show_card(event)
-    if event.photo.present?
-      cl_image_tag event.photo.path, width: 200, height: 100, crop: :fill
+    if event.photo
+      cl_image_path event.photo.path, width: 200, height: 100, crop: :fill
     else
-      'event.jpeg'
+      image_url('event.jpg')
     end
   end
 
