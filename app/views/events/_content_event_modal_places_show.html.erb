@@ -1,6 +1,6 @@
 <%= simple_form_for [arguments[:place], arguments[:event]]  do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :name, placeholder: "ex: \"Blue Night Party\" or \"Snawt at L'Antidote\"" %>
+  <%= f.input :description, label: false, placeholder: "Description"  %>
   <%= f.input :scheduled_at, as: :string, input_html: { class: "datetimepicker4" }, label: false, placeholder: "Choose date and time" %>
   <%= f.input :photo, label: "Add a photo", as: :attachinary, input_html: { class: "hidden" }, label_html: { class: "btn btn-danger" } %>
   <%= f.submit "Create my event", class: "btn btn-primary" %>

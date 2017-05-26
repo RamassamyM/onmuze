@@ -1,0 +1,13 @@
+<%= simple_form_for [performance, proposal] do |f| %>
+  <%= f.input :event_id, label: false, prompt: "Choose your event", collection: current_user.events, :label_method => lambda { |event| "#{event.name} | #{event.scheduled_at.strftime('%d/%m/%Y')}" }, value_method: :id, include_blank: false %>
+  <%= f.submit "Send a proposal", class: "btn btn-danger"%>
+<% end %>
+
+
+<!-- f.association :owner_type, :include_blank => false, :label_method => lambda { |owner| "#{owner.name} | #{owner.subtype_name}" }
+
+f.association :owner_type, :include_blank => false, :label_method => :select_label
+
+f.association :company, label_method: :company_name, value_method: :id, include_blank: false
+
+f.input :category, :as => :select, :label => false, :collection => Choices["Categories"], include_blank: false, include_hidden: false -->
