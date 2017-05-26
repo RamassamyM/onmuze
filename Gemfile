@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 gem 'rails', '5.0.3'
 gem 'puma'
 gem 'pg'
@@ -25,6 +29,8 @@ gem 'coffee-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem "gmaps4rails"
+
 
 group :development, :test do
   gem 'better_errors'

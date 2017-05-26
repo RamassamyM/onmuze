@@ -1,4 +1,15 @@
 class EventsController < ApplicationController
+
+  def index
+    @event = Event.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@flats) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+  end
+
   def create
     if event_params[:place_id]
       create_an_event_in_performance_show
