@@ -1,14 +1,16 @@
-<div class="container text-center">
-  <h1>Create a new place</h1>
-  <p>to organize your best event !</p>
-  <div class="col-xs-4 col-xs-offset-4">
-    <%= simple_form_for @place do |f| %>
-      <%= f.input :name, label: false, placeholder: "Name"%>
-      <%= f.input :address, label: false, placeholder: "Address" %>
-      <%= f.input :description, label: false, placeholder: "Description" %>
-      <%= f.input :photo, label: "Add a photo", as: :attachinary, input_html: { class: "hidden" }, label_html: { class: "btn btn-danger" } %>
-      <%= f.submit "Create my place", class: "btn btn-primary" %>
-    <% end %>
+<div class="wrapper-content">
+  <div class="container text-center">
+    <h1>Create a new place</h1>
+    <p>to organize your best event !</p>
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= simple_form_for @place do |f| %>
+        <%= f.input :name, label: false, placeholder: "Name"%>
+        <%= f.input :address, label: false, placeholder: "Address" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= f.input :photo, label: "Add a photo", as: :attachinary, input_html: { class: "hidden" }, label_html: { class: "btn btn-danger" } %>
+        <%= f.submit "Create my place", class: "btn btn-primary" %>
+      <% end %>
+  </div>
 </div>
 
 <% content_for :title, "Add a place" %>
