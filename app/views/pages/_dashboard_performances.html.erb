@@ -1,0 +1,20 @@
+<div class="dashboard-row">
+  <%=  link_to new_performance_path, class: "dashboard-btn" do %>
+    <%= image_tag 'noun_plus.png' %>
+  <% end %>
+  <h4>My performances</h4>
+</div>
+<% if current_user.performances.any? %>
+  <div class="row">
+    <% current_user.performances.each do |performance| %>
+      <div class="col-md-4">
+        <%= link_to performance_path(performance) do %>
+          <div class="home-card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= performance_show_card(performance) %>');">
+            <h3 class="home-card-title"><%= performance.name %></h3>
+            <p class="home-card-description"><%= performance.address %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
