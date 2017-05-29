@@ -1,6 +1,6 @@
 <div class="container">
-  <h5>Last artists</h5>
   <div class="row">
+    <h5>Last artists</h5>
     <% @last_performances.each do |performance| %>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <%= link_to performance_path(performance) do %>

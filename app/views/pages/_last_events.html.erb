@@ -1,6 +1,6 @@
 <div class="container">
-  <h5>Last events</h5>
   <div class="row">
+    <h5>Last events</h5>
     <% @last_events.each do |event| %>
       <div class="col-md-4">
         <%= link_to event_path(event) do %>

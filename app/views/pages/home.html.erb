@@ -11,7 +11,9 @@
       <%= image_tag "onmuze_logo.png" %>
     </div>
     <h4>Create your events with nice artists and promote them easily</h4>
-    <a href="#" class="btn btn-primary btn-lg">Create for free</a>
+    <% unless current_user %>
+      <%= link_to "Create for free", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
   </div>
   <p>or</p>
   <p>find artists, places, events in your city</p>

@@ -5,7 +5,7 @@
         <%= f.input :address, placeholder: "City", label_html: { class: "hidden" } %>
       </div>
       <div class="col-md-4">
-        <%= f.input :search_type, collection: %w(Events Places Artists), default: 1, label_html: { class: "hidden" } %>
+        <%= f.input :search_type, collection: %w(Artists Events Places), default: 1, label_html: { class: "hidden" } %>
       </div>
       <div class="col-md-4">
         <%= f.button :submit, "Search", class: "btn btn-primary", id: "btn-home" %>
