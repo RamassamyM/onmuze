@@ -2,10 +2,10 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:300,400,700|Raleway:100,300,400,500,700");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Montserrat", "Helvetica", "sans-serif";
-$sub-header-font: "Raleway", "Helvetica", "sans-serif";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:400,600,700|Varela+Round");
+$base-font: 'Open Sans', "Helvetica", "sans-serif";
+$header-font: 'Varela Round', "Helvetica", "sans-serif";
+$sub-header-font: 'Raleway', "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -25,7 +25,7 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color-red: #D23333;
+$brand-color-red: #ff5156;
 $brand-color-blue: #91e9f0;
 $brand-color-green: #00f6d2;
 
@@ -34,7 +34,7 @@ $blue: #43b5f6;
 $yellow: #feef61;
 $orange: #fba674;
 $green: #0AE7C6;
-$gray: #000000;
-$black: #0a1814;
-$dark-gray: #414141;
-$light-gray: #eeeeee;
+$gray: #0b0b0b;
+$black: #0b0b0b;
+$dark-gray: #373f51;
+$light-gray: #f4f4f4;
