@@ -19,11 +19,15 @@ module ApplicationHelper
   end
 
   def owner?
-    !current_user.places.empty?
+    user_signed_in? && !current_user.places.empty?
   end
 
   def artist?
-    !current_user.performances.empty?
+    user_signed_in? && !current_user.performances.empty?
+  end
+
+  def booked?(performance)
+    user_signed_in? && !performance.proposals.confirmed.empty?
   end
 
   def place_show_banner(place)

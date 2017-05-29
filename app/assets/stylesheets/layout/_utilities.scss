@@ -10,6 +10,14 @@
   padding-bottom: 5em;
 }
 
+.sm-padded {
+  padding-bottom: 10px;
+}
+
+.sm-margin {
+  margin-bottom: 20px;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -24,3 +32,11 @@
   background: #3b5998;
 }
 
+.custom-red-btn {
+  background-color: $brand-color-red;
+  color: white;
+  &:hover {
+    color: white;
+    background-color: #ea3156;
+  }
+}
