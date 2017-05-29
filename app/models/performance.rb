@@ -18,7 +18,7 @@ class Performance < ApplicationRecord
     embed_url = youtube_url.match('((.+\?v=)(.+)(&.+))|((.+\?v=)(.+))|((.+\.be\/)(.+))')
     return "" if embed_url.nil?
     video_id = embed_url[3] || embed_url[7] || embed_url[10]
-    "<iframe width='480' height='270' src='https://www.youtube.com/embed/#{video_id}' frameborder='0' allowfullscreen></iframe>".html_safe
+    "<iframe width='100%' height='300' src='https://www.youtube.com/embed/#{video_id}' frameborder='0' allowfullscreen></iframe>".html_safe
   end
 
 end
