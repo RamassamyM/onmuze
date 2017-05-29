@@ -1,10 +1,13 @@
 <% if @performance.banner %>
-  <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @performance.banner.path %>');">
+  <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @performance.banner.path %>');">
   </div>
 <% else %>
   <%= render 'shared/banner-with-asset', asset_url: image_url('artist.png') %>
 <% end %>
-<div class="container">
+
+
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-8">
       <div class="row">
@@ -39,4 +42,4 @@
   <%= render 'shared/modal', content: 'events/content_event_modal', title: 'Create an event', modal_id: 'newEventModal', arguments: { event: @event, places: current_user.places } %>
   <% end %>
 </div>
-<% content_for :title, @performance.name %>
+<% content_for :title, @performance.name %> -->
