@@ -1,0 +1,42 @@
+<div class="container text-center">
+
+  <% if owner? %>
+    <%= simple_form_for @event do |f| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+          <%= f.input :name, label: false, placeholder: "Name " %>
+          <%= f.input :scheduled_at, as: :string, input_html: { class: "datetimepicker4" }, label: false, placeholder: "Choose date and time" %>
+          <%= f.association :place, prompt: "Choose your place", label: false %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+          <%= f.submit "Create event", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+
+  <% else %>
+    <h4><i class="fa fa-share" aria-hidden="true"></i> Share</h4>
+    <ul class="list-inline social">
+      <li>
+        <%= link_to "http://www.facebook.com/sharer.php?u=#{performance_url(@performance)}", target: :blank do %>
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to "https://twitter.com/home?status=#{performance_url(@performance)}", target: :blank do %>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to "https://plus.google.com/share?url=#{performance_url(@performance)}", target: :blank do %>
+          <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+</div>
