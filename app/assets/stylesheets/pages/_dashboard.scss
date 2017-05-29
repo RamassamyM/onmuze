@@ -5,4 +5,9 @@
 
 .dashboard-btn {
   margin: 10px;
+  background-color: $light-gray;
+  transition: 0.3s ease;
+  &:hover {
+    background-color: $blue;
+  }
 }
