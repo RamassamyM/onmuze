@@ -2,3 +2,62 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+ #site-stats {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 24px;
+   padding: 10px;
+   height: 30vh;
+   vertical-align: middle;
+ }
+
+ .home-card {
+   position: relative;
+   height: 200px;
+   color: white;
+   box-shadow: 5px 5px 40px rgba(0,0,0,0.4);
+   text-shadow: -2px 2px 8px black;
+   margin: 2%;
+   border-radius: 4px;
+   background-size: cover;
+   transition: 0.3s ease;
+   opacity: 0.8;
+   &:hover {
+     opacity: 1;
+   }
+ }
+
+ .home-card-title {
+   position: absolute;
+   top: 10px;
+   left: 30px;
+   font-size: 30px;
+   font-family: $header-font;
+ }
+
+ .home-card-description {
+   position: absolute;
+   bottom: 10px;
+   left: 20px;
+   font-family: $sub-header-font;
+   font-style: italic;
+ }
+
+ #search {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   background-color: $black;
+   padding: 20px;
+ }
+
+ #home-banner {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+ }

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def add_navbar_unless_homepage
-    unless controller_name == "pages"
+  def add_appropriate_navbar
+    unless is_home || user_credential_pages
       render 'shared/navbar'
     end
   end
@@ -53,5 +53,30 @@ module ApplicationHelper
       image_url('event.jpg')
     end
   end
+  
+  def place_show_card(place)
+    if place.photo
+      cl_image_path place.photo.path, width: 200, height: 100, crop: :fill
+    else
+      image_url('places.jpg')
+    end
+  end
 
+  def performance_show_card(performance)
+    if performance.avatar
+      cl_image_path performance.avatar.path, width: 200, height: 100, crop: :fill
+    else
+      image_url('artist.png')
+    end
+  end
+
+  private
+  
+  def user_credential_pages
+    (controller_name == 'registrations') || (controller_name == 'sessions') || (controller_name == 'passwords')
+  end
+
+  def is_home
+    controller_name == "pages" && action_name == "home"
+  end
 end
