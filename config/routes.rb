@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   root 'pages#startdirect'
   get 'home', to: 'pages#home'
   get 'choose', to: 'pages#choose'
-  get 'dashboard', to: 'pages#dasboard'
+  get 'dashboard', to: 'pages#dashboard'
   mount Attachinary::Engine => "/attachinary"
 end
