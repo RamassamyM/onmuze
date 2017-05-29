@@ -24,18 +24,26 @@
    border-radius: 4px;
    background-size: cover;
    transition: 0.3s ease;
+   opacity: 0.8;
    &:hover {
-     .home-card-title {
-       font-size: 24px;
-     }
+     opacity: 1;
    }
  }
 
- .home-card_title {
+ .home-card-title {
+   position: absolute;
+   top: 10px;
+   left: 30px;
+   font-size: 30px;
+   font-family: $header-font;
+ }
+
+ .home-card-description {
    position: absolute;
    bottom: 10px;
-   left: 10px;
-   font-size: 20px;
+   left: 20px;
+   font-family: $sub-header-font;
+   font-style: italic;
  }
 
  #search {
@@ -44,7 +52,7 @@
    align-items: center;
    justify-content: center;
    background-color: $black;
-  height: 30vh;
+   padding: 20px;
  }
 
  #home-banner {
