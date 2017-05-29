@@ -50,4 +50,19 @@ module ApplicationHelper
     end
   end
 
+  def place_show_card(place)
+    if place.photo
+      cl_image_path place.photo.path, width: 200, height: 100, crop: :fill
+    else
+      image_url('places.jpg')
+    end
+  end
+
+  def performance_show_card(performance)
+    if performance.avatar
+      cl_image_path performance.avatar.path, width: 200, height: 100, crop: :fill
+    else
+      image_url('artist.png')
+    end
+  end
 end
