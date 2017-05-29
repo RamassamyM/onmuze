@@ -87,6 +87,9 @@
   align-items: center;
 }
 
-.text-right {
-  text-align: right;
+.no-link-style {
+  color: white;
+  &:hover {
+    color: white;
+  }
 }
