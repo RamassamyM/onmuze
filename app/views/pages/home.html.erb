@@ -1,3 +1,4 @@
+<% content_for :title, "Welcome to onmuze" %>
 <div class="alert alert-warning" id="search-alert">
   Please fill address, event type and date fields
 </div>
@@ -5,15 +6,22 @@
 
   <%= render 'shared/navbar_home' %>
 
-  <div class="banner-content text-center">
+  <div class="banner-content text-center" id="home-banner">
     <div class="logo">
       <%= image_tag "onmuze_logo.png" %>
     </div>
-    <h1>Create your event</h1>
-    <p>We will promote it</p>
-    <%= render 'form' %>
+    <h4>Create your events with nice artists and promote them easily</h4>
+    <% unless current_user %>
+      <%= link_to "Create for free", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
   </div>
+  <p>or</p>
+  <p>find artists, places, events in your city</p>
+  <i class="fa fa-caret-down fa-3x"></i>
 </div>
 
-<% content_for :title, "Welcome to onmuze" %>
-
+<%= render 'site_stats' %>
+<%= render 'home_form' %>
+<%= render 'last_events' %>
+<%= render 'last_performances' %>
+<%= render 'last_places' %>

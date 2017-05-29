@@ -1,0 +1,10 @@
+<%= link_to place_path(event) do %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place_show_card(place) %>');">
+    <div class="card-name">
+      <h3><%= place.name %></h3>
+    </div>
+    <div class="card-description">
+      <p><%= place.address %></p>
+    </div>
+  </div>
+<% end %>
