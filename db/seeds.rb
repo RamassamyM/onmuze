@@ -29,7 +29,9 @@ puts "done"
 print "Destroying users..."
 User.destroy_all
 puts "done"
-
+print "Destroying genres..."
+Genre.destroy_all
+puts "done"
 # Adding data
 # Creating 2 users for demo
 print "Seeding 2 users ..."

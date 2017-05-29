@@ -1,1 +1,22 @@
-<h1>Performances#new</h1>
+<div class="wrapper-content">
+  <div class="container text-center">
+    <h1>Create a new performance</h1>
+    <p>and get paid to perform your art !</p>
+    <div class="col-xs-4 col-xs-offset-4">
+      <%= simple_form_for @performance do |f| %>
+        <%= f.input :name, label: false, placeholder: "Name"%>
+        <%= f.input :address, label: false, placeholder: "Address" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= f.association :genre, collection: @genres, label: false, prompt: "Choose the genre of your performance", :label_method => lambda { |genre| "#{genre.event_type} | #{genre.name}" } %>
+        <%= f.input :youtube_url, label: false, placeholder: "Add a Youtube video url (optional)" %>
+        <%= f.input :facebook_url, label: false, placeholder: "Your Facebook page url (optional)" %>
+        <%= f.input :instagram_url, label: false, placeholder: "Add an Instagram pictures url (optional)" %>
+        <%= f.input :soundcloud_url, label: false, placeholder: "Add a Soundcloud url (optional)" %>
+        <%= f.submit "Create my place", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
+
+<% content_for :title, "Add a place" %>
+
+<!-- :include_blank => false -->

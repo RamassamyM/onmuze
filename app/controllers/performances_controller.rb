@@ -11,11 +11,24 @@ class PerformancesController < ApplicationController
                                .select { |p| available_for(p, session[:date]) }
   end
 
+  def new
+    @performance = Performance.new
+    @genres = Genre.all.order(:event_type)
+  end
+
+  def create
+    @performance = current_user.performances.new(performance_params)
+    if @performance.save
+      redirect_to performance_path(@performance)
+    else
+      @genres = Genre.all.order(:event_type)
+      render :new
+    end
+  end
+
   def show
     session[:last_viewed_performance_id] = @performance.id
-    if @performance.youtube_url != ''
-      @embedded_video = generate_embedded_youtube(@performance.youtube_url).html_safe
-    end
+    @embedded_video = @performance.generate_embedded_youtube.html_safe
     @event = Event.new
     @proposal = Proposal.new
   end
@@ -28,24 +41,11 @@ class PerformancesController < ApplicationController
 
   def performance_params
     params.require(:performance).permit(
-      :user_id, :category, :name, :description, :address, :youtube_url,
+      :user_id, :genre_id, :name, :description, :address, :youtube_url,
       :facebook_url, :instagram_url, :soundcloud_url, :avatar, :banner
     )
   end
-
-  def generate_embedded_youtube(youtube_video_url)
-    embed_url = youtube_video_url.match(/^(.+\?v=)(.+)(&.+)$/)
-    if embed_url.nil?
-      embed_url = youtube_video_url.match(/^(.+\.be\/)(.+)$/)
-    end
-    if embed_url.nil?
-      embedded_video = ''
-    else
-      embedded_video = "<iframe width='100%' height='300' src='https://www.youtube.com/embed/#{embed_url[2]}' frameborder='0' allowfullscreen></iframe>"
-    end
-    embedded_video
-  end
-
+  
   def available_for(performance, date)
     available = true
     if performance.proposals.any?
