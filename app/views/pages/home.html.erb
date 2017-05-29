@@ -17,7 +17,9 @@
   </div>
   <p>or</p>
   <p>find artists, places, events in your city</p>
-  <i class="fa fa-caret-down fa-3x"></i>
+  <%= link_to "#search", class: "no-link-style" do %>
+    <i class="fa fa-caret-down fa-3x"></i>
+  <% end %>
 </div>
 
 <%= render 'site_stats' %>
