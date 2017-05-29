@@ -1,9 +1,13 @@
 .product {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 20px;
-  border-radius: 3px;
+  border-radius: 5px;
   transition: all 0.15s ease;
+  background-color: rgb(220, 220, 220);
+  margin-bottom: 15px;
+  box-shadow: 10px 10px 40px rgba(0,0,0,0.5);
 }
 
 .product-body {
@@ -15,9 +19,8 @@
   color: $gray;
   }
   p {
-  font-weight: lighter;
   color: $gray;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   }
   i {
   color: #ffe542;
@@ -31,7 +34,9 @@
 }
 
 .product:hover {
-  background: #f7f7fa;
+  position: relative;
+  background: $light-gray;
+  bottom: 1px;
 }
 
 .pending {

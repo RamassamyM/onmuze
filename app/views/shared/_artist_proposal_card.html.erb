@@ -1,6 +1,5 @@
 <div class="container">
-  <h4 class="light-headers text-center">Manage my proposals</h4>
-  <% @performance.proposals.each do |proposal| %>
+  <% @performance.proposals.order("status = 0 DESC, status = 1 DESC, status = 2 DESC, status = 3 DESC, status = 4 DESC").each do |proposal| %>
     <div class="product">
       <% if proposal.event.place.photo? %>
         <%= link_to place_path(proposal.event.place) do %>
@@ -9,15 +8,16 @@
       <% end %>
 
       <div class="product-body">
-        <h6>From</h6>
-        <p><%= proposal.event.place.name %></p>
-        <h6>Event Date</h6>
-        <p><%= proposal.event.scheduled_at %></p>
-        <h6>Status</h6>
+        <p>From <%= proposal.event.place.name %></p>
+        <p>Event Date: <%= proposal.event.scheduled_at.strftime('%d/%m/%Y') %></p>
         <p class="<%= proposal.status %>"><%= proposal.status.capitalize %></p>
       </div>
 
       <div class="product-links">
+        <%= link_to event_path(proposal.event) do %>
+          <p><i class="fa fa-eye" aria-hidden="true"></i> Event</p>
+        <% end %>
+
         <% if proposal.pending? %>
           <%= link_to proposal_path(proposal, proposal: { event_id: proposal.event.id, status: 'accepted' }), method: :put, remote: true do %>
             <p><i class="fa fa-check accepted" aria-hidden="true"></i> Accept</p>
