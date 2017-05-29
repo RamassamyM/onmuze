@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   resources :events, only: %i(create)
   resources :proposals, only: %i(update)
-  root to: 'pages#home'
-  mount Attachinary::Engine => '/attachinary'
+  root 'pages#startdirect'
+  get 'home', to: 'pages#home'
+  get 'choose', to: 'pages#choose'
+  get 'dashboard', to: 'pages#dasboard'
+  mount Attachinary::Engine => "/attachinary"
 end
