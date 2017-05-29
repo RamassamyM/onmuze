@@ -45,14 +45,7 @@ class PerformancesController < ApplicationController
       :facebook_url, :instagram_url, :soundcloud_url, :avatar, :banner
     )
   end
-
-  # def generate_embedded_youtube(youtube_video_url)
-  #   embed_url = youtube_video_url.match('((.+\?v=)(.+)(&.+))|((.+\?v=)(.+))|((.+\.be\/)(.+))')
-  #   return "" if embed_url.nil?
-  #   video_id = embed_url[2] || embed_url[6] || embed_url[9]
-  #   "<iframe width='480' height='270' src='https://www.youtube.com/embed/#{video_id}' frameborder='0' allowfullscreen></iframe>"
-  # end
-
+  
   def available_for(performance, date)
     available = true
     if performance.proposals.any?

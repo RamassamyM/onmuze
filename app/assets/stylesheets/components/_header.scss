@@ -10,7 +10,7 @@ h2 {
 }
 
 .devise-title {
-  margin-top: 160px;
+  margin-top: 120px;
   margin-bottom: 50px;
 }
 
@@ -21,10 +21,15 @@ h2 {
     color: $dark-gray;
   }
   a:hover {
-    color: $black;
+    color: $blue;
   }
 }
 
 .logo-devise-pages {
   width: 200px;
+}
+
+.title {
+  margin-top: 70px;
+  margin-bottom: 50px;
 }

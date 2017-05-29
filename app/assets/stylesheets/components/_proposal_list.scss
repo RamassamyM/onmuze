@@ -1,0 +1,63 @@
+.product {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  transition: all 0.15s ease;
+  background-color: rgb(220, 220, 220);
+  margin-bottom: 15px;
+  box-shadow: 10px 10px 40px rgba(0,0,0,0.5);
+}
+
+.product-body {
+  flex: 1 1 auto;
+  h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+  color: $gray;
+  }
+  p {
+  color: $gray;
+  margin-bottom: 5px;
+  }
+  i {
+  color: #ffe542;
+  }
+}
+
+.product-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+.product:hover {
+  position: relative;
+  background: $light-gray;
+  bottom: 1px;
+}
+
+.pending {
+  color: $orange !important;
+}
+
+.accepted {
+  color: $green !important;
+}
+
+.canceled {
+  color: $red !important;
+}
+
+.confirmed {
+  color: $blue !important;
+}
+
+.product-links a {
+  color: #999999;
+  &:hover {
+    color: #444444;
+  }
+}

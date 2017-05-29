@@ -10,6 +10,14 @@
   padding-bottom: 5em;
 }
 
+.sm-padded {
+  padding-bottom: 10px;
+}
+
+.sm-margin {
+  margin-bottom: 20px;
+}
+
 // Color font
 .white-link {
   color: white;
@@ -31,6 +39,15 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.custom-red-btn {
+  background-color: $brand-color-red;
+  color: white;
+  &:hover {
+    color: white;
+    background-color: #ea3156;
+  }
 }
 
 // Margins

@@ -1,0 +1,20 @@
+<div class="dashboard-row">
+  <%=  link_to new_place_path, class: "dashboard-btn img img-circle" do %>
+    <%= image_tag 'noun_plus.png' %>
+  <% end %>
+  <h4>My places</h4>
+</div>
+<% if current_user.places.any? %>
+  <div class="row">
+    <% current_user.places.each do |place| %>
+      <div class="col-md-4">
+        <%= link_to place_path(place) do %>
+          <div class="home-card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place_show_card(place) %>');">
+            <h3 class="home-card-title"><%= place.name %></h3>
+            <p class="home-card-description"><%= place.address %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
