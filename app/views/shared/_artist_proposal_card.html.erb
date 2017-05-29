@@ -1,15 +1,14 @@
-<% @performance.proposals.each do |proposal| %>
-  <div class="my-proposals">
-    <div class="proposal-body">
-      <div class="proposal-photo">
-        <% if proposal.event.place.photo? %>
-          <%= link_to place_path(proposal.event.place) do %>
-            <%= cl_image_tag proposal.event.place.photo.path, width: 400, aspect_ratio: "16:9", crop: :fill, class: "proposal-img" %>
-          <% end %>
+<div class="container">
+  <h4 class="light-headers text-center">Manage my proposals</h4>
+  <% @performance.proposals.each do |proposal| %>
+    <div class="product">
+      <% if proposal.event.place.photo? %>
+        <%= link_to place_path(proposal.event.place) do %>
+          <%= cl_image_tag proposal.event.place.photo.path, width: 400, aspect_ratio: "16:9", crop: :fill, class: "product-image hidden-xs" %>
         <% end %>
-      </div>
+      <% end %>
 
-      <div class="proposal-content">
+      <div class="product-body">
         <h6>From</h6>
         <p><%= proposal.event.place.name %></p>
         <h6>Event Date</h6>
@@ -17,18 +16,19 @@
         <h6>Status</h6>
         <p class="<%= proposal.status %>"><%= proposal.status.capitalize %></p>
       </div>
-    </div>
 
-    <% if proposal.pending? %>
-      <div class="proposal-btn">
-        <%= link_to proposal_path(proposal, proposal: { event_id: proposal.event.id, status: 'accepted' }), method: :put, remote: true do %>
-          <p><i class="fa fa-check accepted" aria-hidden="true"></i> Accept</p>
-        <% end %>
+      <div class="product-links">
+        <% if proposal.pending? %>
+          <%= link_to proposal_path(proposal, proposal: { event_id: proposal.event.id, status: 'accepted' }), method: :put, remote: true do %>
+            <p><i class="fa fa-check accepted" aria-hidden="true"></i> Accept</p>
+          <% end %>
 
-        <%= link_to proposal_path(proposal, proposal: { event_id: proposal.event.id, status: 'declined' }), method: :put, remote: true do %>
-          <p><i class="fa fa-check declined" aria-hidden="true"></i> Decline</p>
+          <%= link_to proposal_path(proposal, proposal: { event_id: proposal.event.id, status: 'declined' }), method: :put, remote: true do %>
+            <p><i class="fa fa-check declined" aria-hidden="true"></i> Decline</p>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
+

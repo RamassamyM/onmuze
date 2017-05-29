@@ -1,0 +1,26 @@
+.cards {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 10px 10px 40px rgba(0,0,0,0.4);
+  border: 10px white solid;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  h2 {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0 4px #282626;
+  }
+  p {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: $light-gray;
+    font-weight: bolder;
+    text-shadow: 1px 0 4px #282626;
+  }
+}

@@ -1,12 +1,5 @@
 .banner-show {
-  height: 300px;
+  height: 50vh;
   background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.banner-position-left-middle {
-  position: absolute;
-  bottom: -30%;
-  left: 50px;
+  background-position: center center;
 }

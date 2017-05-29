@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="name-header">
+        <div>
+          <h1><%= @performance.name %></h1>
+          <h4><%= @performance.genre.name %></h4>
+        </div>
+
+        <div>
+          <% if @performance.user == current_user %>
+            <%= link_to root_path do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-10">
+      <p class="text-justify"><%= @performance.description %></p>
+    </div>
+  </div>
+</div>
