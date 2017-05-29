@@ -10,6 +10,15 @@
   padding-bottom: 5em;
 }
 
+// Color font
+.white-link {
+  color: white;
+  font-weight: lighter;
+  &:hover {
+    color: $blue;
+  }
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -24,3 +33,43 @@
   background: #3b5998;
 }
 
+// Margins
+.left-marged {
+  margin-left: 20px;
+}
+
+.right-marged {
+  margin-right: 20px;
+}
+
+.top-marged {
+  margin-top: 20px;
+}
+
+.bottom-marged {
+  margin-bottom: 20px;
+}
+// alignment and distribution
+.distributed {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexed-left {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexed-inline {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.text-right {
+  text-align: right;
+}

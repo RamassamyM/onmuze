@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <%= add_navbar_unless_homepage %>
+    <%= add_appropriate_navbar %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= add_modal_after_signup_if_nothing_created %>
