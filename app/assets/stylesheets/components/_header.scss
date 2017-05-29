@@ -1,0 +1,26 @@
+
+h1 {
+  font-size: 54px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+.devise-title {
+  margin-top: 160px;
+  margin-bottom: 50px;
+}
+
+.link-to-back {
+  padding: 20px;
+  font-weight: lighter;
+  a {
+    color: $dark-gray;
+  }
+  a:hover {
+    color: $black;
+  }
+}
