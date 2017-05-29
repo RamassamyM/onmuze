@@ -1,0 +1,58 @@
+.product {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+.product-body {
+  flex: 1 1 auto;
+  h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+  color: $gray;
+  }
+  p {
+  font-weight: lighter;
+  color: $gray;
+  margin-bottom: 0;
+  }
+  i {
+  color: #ffe542;
+  }
+}
+
+.product-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+.product:hover {
+  background: #f7f7fa;
+}
+
+.pending {
+  color: $orange !important;
+}
+
+.accepted {
+  color: $green !important;
+}
+
+.canceled {
+  color: $red !important;
+}
+
+.confirmed {
+  color: $blue !important;
+}
+
+.product-links a {
+  color: #999999;
+  &:hover {
+    color: #444444;
+  }
+}

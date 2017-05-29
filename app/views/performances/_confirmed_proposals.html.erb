@@ -1,0 +1,27 @@
+<div class="container">
+  <% if booked?(@performance) %>
+    <h4 class="light-headers text-center">Upcoming events featuring <%= @performance.name %></h4>
+    <div class="row">
+      <% @performance.proposals.confirmed.each do |proposal| %>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <%= link_to event_path(proposal.event) do %>
+            <% if proposal.event.photo %>
+              <div class="cards sm-margin" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('<%= cl_image_path proposal.event.photo.path, height: 250 %>');">
+                <h2><%= proposal.event.name %></h2>
+                <p><%= proposal.event.scheduled_at.strftime('%d/%m/%Y') %></p>
+              </div>
+            <% else %>
+              <div class="cards sm-margin" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(http://res.cloudinary.com/onmuze/image/upload/c_scale,w_800/v1496067544/event_avwc53.jpg);">
+                <h2><%= proposal.event.name %></h2>
+                <p><%= proposal.event.scheduled_at.strftime('%d/%m/%Y') %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  <% else %>
+   <h4 class="light-headers text-center">No upcoming events featuring <%= @performance.name %></h4>
+  <% end %>
+</div>
