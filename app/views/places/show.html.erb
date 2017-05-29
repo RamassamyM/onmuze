@@ -1,33 +1,35 @@
-<%= place_show_banner(@place) %>
+<div class="wrapper-content">
+  <%= place_show_banner(@place) %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="text-center">
-          <div class="place-content">
-            <h1><%= @place.name %></h1>
-            </div>
-            <div>
-              <p><strong>Address : </strong><%= @place.address %></p>
-              <p><strong>Description : </strong><%= @place.description %></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="text-center">
+            <div class="place-content">
+              <h1><%= @place.name %></h1>
+              </div>
+              <div>
+                <p><strong>Address : </strong><%= @place.address %></p>
+                <p><strong>Description : </strong><%= @place.description %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="right-block text-center">
-        <button type="button" id="new-event-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEventModalPlaceShow">
-          New event
-        </button>
-        <% if user_signed_in? %>
-          <h3>My future events</h3>
-          <% @place.events.each do |event| %>
-            <%= render 'shared/event-card-show', event: event %>
+      <div class="col-sm-4">
+        <div class="right-block text-center">
+          <button type="button" id="new-event-button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEventModalPlaceShow">
+            New event
+          </button>
+          <% if user_signed_in? %>
+            <h3>My future events</h3>
+            <% @place.events.each do |event| %>
+              <%= render 'shared/event-card-show', event: event %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>

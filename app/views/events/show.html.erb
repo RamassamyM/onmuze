@@ -1,31 +1,33 @@
-<% if @event.photo %>
-  <%= render 'shared/banner-with-cloudinary', instance: @event %>
-<% else %>
-  <%= render 'shared/banner-with-asset', asset_url: image_url('event.jpg') %>
-<% end %>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-8">
-      <h1><%= @event.name %></h1>
-      <h3><%= @event.place.name%> <small><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></small></h3>
-      <p><%= @event.description %></p>
-      <div id="confirmed_proposals">
-        <%= render 'proposals/confirmed_proposals' %>
+<div class="wrapper-content">
+  <% if @event.photo %>
+    <%= render 'shared/banner-with-cloudinary', instance: @event %>
+  <% else %>
+    <%= render 'shared/banner-with-asset', asset_url: image_url('event.jpg') %>
+  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-8">
+        <h1><%= @event.name %></h1>
+        <h3><%= @event.place.name%> <small><%= @event.scheduled_at.strftime("%A %d, %B %Y") %></small></h3>
+        <p><%= @event.description %></p>
+        <div id="confirmed_proposals">
+          <%= render 'proposals/confirmed_proposals' %>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <% if @event.place.user == current_user %>
+          <%= render 'events/event_owner_sidebar' %>
+        <% else %>
+          <!-- render google map (Louise) -->
+        <% end %>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-4">
-      <% if @event.place.user == current_user %>
-        <%= render 'events/event_owner_sidebar' %>
-      <% else %>
-        <!-- render google map (Louise) -->
-      <% end %>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <a href="#" class="btn-treehouse-green">Promote this event</a>
+    <hr>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <a href="#" class="btn-treehouse-green">Promote this event</a>
+      </div>
     </div>
   </div>
 </div>
