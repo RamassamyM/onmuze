@@ -33,6 +33,7 @@ class Performance < ApplicationRecord
   end
 
   def generate_instagram
+    return '' if self.soundcloud_url.empty?
     url = "https://api.instagram.com/oembed?url=" + self.instagram_url + "&format=json&maxwidth=320&hidecaption=true"
     instagram_serialized = open(url).read
     JSON.parse(instagram_serialized)["html"].html_safe
