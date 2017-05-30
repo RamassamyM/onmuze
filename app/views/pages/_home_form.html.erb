@@ -11,7 +11,9 @@
           <%= f.input :date, as: :string, input_html: { class: "input-md datepicker placeholder-padding" }, label_html: { class: "hidden" }, placeholder: "Pick a date" %>
         </div>
         <div class="col-md-3">
-          <%= f.button :submit, "Find an artist", class: "btn btn-danger btn-md", id: "btn-home" %>
+          <div class="flexed-left">
+           <%= f.button :submit, "Find an artist", class: "btn btn-danger" %>
+          </div>
         </div>
       <% end %>
   </div>
