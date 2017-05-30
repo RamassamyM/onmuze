@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'}
   resources :performances, only: %i(index show new create) do
     resources :proposals, only: %i(create)
   end
