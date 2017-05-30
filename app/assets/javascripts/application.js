@@ -22,4 +22,9 @@ $(document).ready(function() {
       $(this).unbind('click');
     }
   });
+  $("#edit-btn").click(function() {
+    $("#edit-form").slideToggle("slow", function() {
+    });
+  });
 });
+
