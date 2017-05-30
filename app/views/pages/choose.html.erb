@@ -1,1 +1,36 @@
-<h1>Choose your first experience</h1>
+<div class="banner-gradient-devise" style="background-image: linear-gradient(0deg, rgba(255,255,255,0.6), rgba(255,255,255,1)50%),
+url('<%= image_url('street.jpg')%>');">
+  <div class="distributed">
+    <%= render "shared/link-to-backhome" %>
+    <div>
+      <%= image_tag "onmuze_logo_black_symbol", class: "logo-devise-pages"%>
+    </div>
+    <div class="cheek"></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs12">
+        <div class="devise-title text-center">
+          <h2>Choose your first experience</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="div col-sm-4 col-sm-offset-2">
+        <%= link_to new_place_path do %>
+        <div class="choose-block">
+          I organize an event and<br>I will create a place<br>for my event
+        </div>
+        <% end %>
+      </div>
+      <div class="div col-sm-4">
+        <%= link_to new_performance_path do %>
+        <div class="choose-block">
+          I am an artist and<br>I want to show or<br>perform my art
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :title, "My account" %>

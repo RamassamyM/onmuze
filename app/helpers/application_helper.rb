@@ -53,7 +53,7 @@ module ApplicationHelper
       image_url('event.jpg')
     end
   end
-  
+
   def place_show_card(place)
     if place.photo
       cl_image_path place.photo.path, width: 200, height: 100, crop: :fill
@@ -71,12 +71,12 @@ module ApplicationHelper
   end
 
   private
-  
+
   def user_credential_pages
     (controller_name == 'registrations') || (controller_name == 'sessions') || (controller_name == 'passwords')
   end
 
   def is_home
-    controller_name == "pages" && action_name == "home"
+    controller_name == "pages" && ( action_name == "home" || action_name == "choose" )
   end
 end

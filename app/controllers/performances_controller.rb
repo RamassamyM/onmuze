@@ -1,3 +1,5 @@
+require 'json'
+require 'open-uri'
 # PerformancesController
 class PerformancesController < ApplicationController
   before_action :set_performance, only: %i(show)
@@ -28,7 +30,9 @@ class PerformancesController < ApplicationController
 
   def show
     session[:last_viewed_performance_id] = @performance.id
-    @embedded_video = @performance.generate_embedded_youtube.html_safe
+    @embedded_video = @performance.generate_embedded_youtube
+    @soundcloud_embed = @performance.generate_embedded_soundcloud
+    @embedded_instagram = @performance.generate_instagram
     @event = Event.new
     @proposal = Proposal.new
   end
@@ -45,7 +49,7 @@ class PerformancesController < ApplicationController
       :facebook_url, :instagram_url, :soundcloud_url, :avatar, :banner
     )
   end
-  
+
   def available_for(performance, date)
     available = true
     if performance.proposals.any?
