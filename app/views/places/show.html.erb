@@ -1,4 +1,4 @@
-<div class="wrapper-content">
+<div class="wrapper">
   <%= place_show_banner(@place) %>
 
   <div class="wrapper">
@@ -6,13 +6,19 @@
   </div>
 
   <div class="wrapper">
-    <%= render 'shared/create_new_event' %>
+    <%= render 'create_new_event' %>
+  </div>
+
+  <div class="wrapper">
+    <%= render 'event_card_show' %>
   </div>
 
   <div class="wrapper-grey">
-    <%= render 'shared/event_card_show' %>
+    <%= render 'location_banner' %>
   </div>
-
+  <div class="wapper">
+    <%= render 'location_map', latitude: @place.latitude, longitude: @place.longitude %>
+  </div>
 </div>
 
 
