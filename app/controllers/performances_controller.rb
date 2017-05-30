@@ -35,6 +35,7 @@ class PerformancesController < ApplicationController
     # @soundcloud_embed = @performance.generate_embedded_soundcloud
     @event = Event.new
     @proposal = Proposal.new
+    @genres = Genre.all.order(:event_type)
   end
 
   def update

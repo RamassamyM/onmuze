@@ -9,15 +9,36 @@
 
         <div>
           <% if @performance.user == current_user %>
-            <%= link_to root_path do %>
+            <div id="edit-btn">
               <i class="fa fa-pencil" aria-hidden="true"></i> Edit
-            <% end %>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm-12 col-lg-10">
       <p class="text-justify"><%= @performance.description %></p>
+    </div>
+  </div>
+
+  <div class="row" id="edit-form">
+    <div class="col-sm-12 col-lg-10 text-center">
+      <%= simple_form_for @performance, method: :put do |f| %>
+        <%= f.input :name, label: false, placeholder: "Name"%>
+        <%= f.input :address, label: false, placeholder: "Address" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= f.association :genre, collection: @genres, label: false, prompt: "Choose the genre of your performance", :label_method => lambda { |genre| "#{genre.event_type} | #{genre.name}" } %>
+        <%= f.input :youtube_url, label: false, placeholder: "Add a Youtube video url (optional)" %>
+        <%= f.input :facebook_url, label: false, placeholder: "Your Facebook page url (optional)" %>
+        <%= f.input :instagram_url, label: false, placeholder: "Add an Instagram post url (optional)" %>
+        <%= f.input :soundcloud_url, label: false, placeholder: "Add a Soundcloud url (optional)" %>
+        <%= button_tag type: 'submit', class: "custom-form-btn" do %>
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Update my profile
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
