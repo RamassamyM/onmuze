@@ -15,6 +15,24 @@
 
 #search {
   margin-right: 0 !important;
+  select {
+    color: #999;
+  }
+}
+
+.custom-form-btn {
+  background: none;
+  border: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#edit-btn {
+  cursor: pointer;
+}
+
+#edit-form {
+  display: none;
 }
 
 #btn-create-event {

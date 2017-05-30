@@ -1,0 +1,12 @@
+<% if @performance.user == current_user %>
+  <div class="edit-banner">
+    <div class="update-pic">
+      <%= simple_form_for @performance, html: { id: "pic-updater" } do |f| %>
+        <%= f.label :banner do %>
+          <p><i class="fa fa-camera" aria-hidden="true"></i> Change picture</p>
+        <% end %>
+        <%= f.input :banner, as: :file, label: false, input_html: { class: "hidden", onchange: "$('#pic-updater').trigger('submit.rails')" } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
