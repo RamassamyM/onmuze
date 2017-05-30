@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-  include SendGrid
   def send_proposal(performance, event)
     # A proposal is sent to a performance by an event
     @performance = performance

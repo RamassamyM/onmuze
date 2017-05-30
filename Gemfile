@@ -14,8 +14,6 @@ gem 'devise'
 gem 'redis'
 gem 'geocoder'
 gem 'faker', github: 'stympy/faker'
-# gem 'postmark-rails'
-gem 'sendgrid-ruby'
 
 gem 'sass-rails'
 gem 'jquery-rails'
