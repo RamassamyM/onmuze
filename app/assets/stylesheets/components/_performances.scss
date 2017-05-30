@@ -2,28 +2,30 @@
   position: relative;
   height: 200px;
   color: white;
-  box-shadow:  0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
   text-shadow: -2px 2px 8px black;
   margin: 2%;
   border-radius: 4px;
   background-size: cover;
   transition: 0.3s ease;
+  opacity: 0.8;
   &:hover {
-    .performance-name {
-      font-size: 24px;
-    }
+    opacity: 1;
   }
 }
 
 .performance-name {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 20px;
+  top: 10px;
+  left: 20px;
+  font-size: 30px;
+  font-family: $header-font;
 }
 
 .performance-genre {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  font-family: $sub-header-font;
+  font-style: italic;
 }
