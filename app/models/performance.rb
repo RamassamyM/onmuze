@@ -22,19 +22,13 @@ class Performance < ApplicationRecord
     "<iframe width='100%' height='300' src='https://www.youtube.com/embed/#{embed_url[:id]}' frameborder='0' allowfullscreen></iframe>".html_safe
   end
 
-  def generate_embedded_soundcloud
-    return '' if self.soundcloud_url.empty?
-    # embed_url = soundcloud_url.match('/(.+)(api\.soundcloud\.com\/tracks\/)(?<id>[^\&\/]+)(.+)?/')
-    # return "" if embed_url.nil?
-    # "<iframe width='100%' height='300' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https\%3A//api.soundcloud.com/tracks/#{embed_url[:id]}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>".html_safe
-    url = "https://soundcloud.com/oembed?url=" + self.soundcloud_url + "&format=json&maxheight=300"
-    soundcloud_serialized = open(url).read
-    JSON.parse(soundcloud_serialized)["html"].html_safe
-  end
-
-  def generate_instagram
-    url = "https://api.instagram.com/oembed?url=" + self.instagram_url + "&format=json&maxwidth=320&hidecaption=true"
-    instagram_serialized = open(url).read
-    JSON.parse(instagram_serialized)["html"].html_safe
-  end
+  # def generate_embedded_soundcloud
+  #   return '' if self.soundcloud_url.empty?
+  #   # embed_url = soundcloud_url.match('/(.+)(api\.soundcloud\.com\/tracks\/)(?<id>[^\&\/]+)(.+)?/')
+  #   # return "" if embed_url.nil?
+  #   # "<iframe width='100%' height='300' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https\%3A//api.soundcloud.com/tracks/#{embed_url[:id]}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>".html_safe
+  #   url = "https://soundcloud.com/oembed?url=" + self.soundcloud_url + "&format=json&maxheight=300"
+  #   soundcloud_serialized = open(url).read
+  #   JSON.parse(soundcloud_serialized)["html"].html_safe
+  # end
 end
