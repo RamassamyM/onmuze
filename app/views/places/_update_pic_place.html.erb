@@ -1,7 +1,7 @@
-<% if @place.user == current_user %>
+<% if place.user == current_user %>
   <div class="edit-banner">
     <div class="update-pic">
-      <%= simple_form_for @place, html: { id: "pic-updater" } do |f| %>
+      <%= simple_form_for place, html: { id: "pic-updater" } do |f| %>
         <%= f.label :photo do %>
           <p><i class="fa fa-camera" aria-hidden="true"></i> Change picture</p>
         <% end %>

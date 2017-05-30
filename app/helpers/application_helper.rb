@@ -33,10 +33,8 @@ module ApplicationHelper
   def place_show_banner(place)
     if place.photo
       render 'shared/banner-with-cloudinary', instance: place
-      render 'places/update_pic_place'
     else
       render 'shared/banner-with-asset', asset_url: image_url('places.jpg')
-      render 'places/update_pic_place'
     end
   end
 
