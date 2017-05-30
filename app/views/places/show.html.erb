@@ -1,5 +1,13 @@
 <div class="wrapper">
-  <%= place_show_banner(@place) %>
+  <% if @place.photo %>
+    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @place.photo.path %>');">
+      <%= render 'update_pic_place' %>
+    </div>
+
+  <% else %>
+    <%= render 'shared/banner-with-asset', asset_url: image_url('places.png') %>
+  <% end %>
+
 
   <div class="wrapper">
     <%= render 'header' %>
