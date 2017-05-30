@@ -75,6 +75,7 @@ print "Seeding events for a place"
 event_photo_urls = [
   "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495547650/background_yrtacl.jpg",
   "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495564300/pexels-photo-169594_tebodg.jpg",
+  "http://res.cloudinary.com/ubiram/image/upload/v1495813328/k9hc0yaauwipgqgzrlpj.jpg"
 ]
 events = [
   {
@@ -86,6 +87,11 @@ events = [
     name: "Electro Diving Party",
     description: "Th best french Electro Djs on the Bordeaux scene will make you rock all night long!",
     scheduled_at: DateTime.parse('2017-06-04T23:00:00+02:00')
+  },
+  {
+    name: "Funky Apero",
+    description: "Try our afterwork apero with funky live band.",
+    scheduled_at: DateTime.parse('2017-06-04T18:00:00+02:00')
   }
 ]
 events.each_with_index do |event, index|
@@ -123,7 +129,7 @@ demo_performance = {
   youtube_url: "https://youtu.be/us7fARCCM54",
   facebook_url: "https://www.facebook.com/snawtmusic/",
   instagram_url: "https://www.instagram.com/explore/tags/snawt/",
-  soundcloud_url: ""
+  soundcloud_url: "https://soundcloud.com/snawt/make-you-move"
 }
 p = Performance.new(demo_performance)
 p.genre = Genre.find_by_name("Disco/Funk")
@@ -135,9 +141,19 @@ puts ".done"
 
 #Creating proposal demo
 print "Seeding demo proposal"
+first_proposal = Proposal.new
+first_proposal.event = Event.first
+first_proposal.performance = Performance.find_by_name('Snawt')
+first_proposal.save!
+second_proposal = Proposal.new
+second_proposal.event = Event.last
+second_proposal.performance = Performance.find_by_name('Snawt')
+second_proposal.confirmed!
+second_proposal.save!
 new_proposal = Proposal.new
-new_proposal.event = Event.first
+new_proposal.event = Event.find_by_name('Electro Diving Party')
 new_proposal.performance = Performance.find_by_name('Snawt')
+new_proposal.accepted!
 new_proposal.save!
 puts ".done"
 
@@ -368,7 +384,7 @@ performances.each do |genre_name, performances_array|
       youtube_url: "https://www.youtube.com/watch?v=kk0WRHV_vt8",
       facebook_url: "https://www.facebook.com/snawtmusic/",
       instagram_url: "https://www.instagram.com/explore/tags/snawt/",
-      soundcloud_url: "",
+      soundcloud_url: "https://soundcloud.com/the-cat-empire/party-started",
       user_id: seed_user.id,
       genre_id: Genre.find_by_name(genre_name).id,
       name: performance[:name],

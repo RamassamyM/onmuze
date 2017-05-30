@@ -1,6 +1,6 @@
-.wrapper-content {
-  margin-top: 70px;
-}
+// .wrapper-content {
+//   margin-top: 70px;
+// }
 
 .wrapper {
   padding: 60px 0px;
@@ -9,4 +9,12 @@
 .wrapper-grey {
   padding: 60px 0px;
   background-color: #2C2C2C;
+}
+
+.page-wrapper{
+  min-height: 100%;
+}
+
+.page-wrapper-navbar-margin {
+  margin-top: 70px;
 }

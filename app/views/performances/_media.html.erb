@@ -1,20 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-6">
+      <% unless @embedded_video == 'error'  %>
       <div class="sm-padded">
         <%= @embedded_video %>
       </div>
+      <% end %>
     </div>
 
     <div class="col-sm-12 col-md-6">
+      <% unless @soundcloud_embed =='error' %>
       <div class="sm-padded">
         <%= @soundcloud_embed %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <%= @embedded_instagram %>
+      <% end %>
     </div>
   </div>
 </div>

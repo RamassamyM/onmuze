@@ -16,7 +16,6 @@
             <%= f.association :genre, collection: @genres, label: false, prompt: "Choose the genre of your performance", :label_method => lambda { |genre| "#{genre.event_type} | #{genre.name}" } %>
             <%= f.input :youtube_url, label: false, placeholder: "Add a Youtube video url (optional)" %>
             <%= f.input :facebook_url, label: false, placeholder: "Your Facebook page url (optional)" %>
-            <%= f.input :instagram_url, label: false, placeholder: "Add an Instagram post url (optional)" %>
             <%= f.input :soundcloud_url, label: false, placeholder: "Add a Soundcloud url (optional)" %>
             <%= f.submit "Create my place", class: "btn btn-primary" %>
           <% end %>

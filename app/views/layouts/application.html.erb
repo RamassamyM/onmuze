@@ -12,9 +12,10 @@
   <body>
 
     <%= add_appropriate_navbar %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%#= add_modal_after_signup_if_nothing_created %>
+    <div class="page-wrapper <%= add_navbar_margin %>">
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>

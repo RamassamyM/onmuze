@@ -8,10 +8,10 @@ class Performance < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :genre_id, presence: true
-  # validates :youtube_url, format: { with: /\A((https:\/\/www\.youtube\.com\/watch\?v=)|(https:\/\/youtu\.be\/)|(\<iframe width\=\"\d+\" height\=\"\d+\" src\=\"https:\/\/www\.youtube\.com\/embed\/))(?<id>[^\/\?\&"]+)((\?|&|").+)?\z/,
-  # message: "Enter a valid Youtube url" }, allow_blank: true
-  # validates :soundcloud_url, format: { with: /(.+)(api\.soundcloud\.com\/tracks\/)(?<id>[^\&\/]+)(.+)?/,
-  # message: "Enter a valid soundclound embedded block" }, allow_blank: true
+  validates :youtube_url, format: { with: /\A((https:\/\/www\.youtube\.com\/watch\?v=)|(https:\/\/youtu\.be\/)|(\<iframe width\=\"\d+\" height\=\"\d+\" src\=\"https:\/\/www\.youtube\.com\/embed\/))(?<id>[^\/\?\&"]+)((\?|&|").+)?\z/,
+  message: "Enter a valid Youtube url" }, allow_blank: true
+  validates :soundcloud_url, format: { with: /\A(.+)(soundcloud\.com\/(tracks\/)?)(?<id>[^\&\/]+)(.+)?\z/,
+  message: "Enter a valid soundclound embedded block" }, allow_blank: true
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
