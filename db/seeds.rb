@@ -123,7 +123,7 @@ demo_performance = {
   youtube_url: "https://youtu.be/us7fARCCM54",
   facebook_url: "https://www.facebook.com/snawtmusic/",
   instagram_url: "https://www.instagram.com/explore/tags/snawt/",
-  soundcloud_url: "233433716"
+  soundcloud_url: ""
 }
 p = Performance.new(demo_performance)
 p.genre = Genre.find_by_name("Disco/Funk")
@@ -368,7 +368,7 @@ performances.each do |genre_name, performances_array|
       youtube_url: "https://www.youtube.com/watch?v=kk0WRHV_vt8",
       facebook_url: "https://www.facebook.com/snawtmusic/",
       instagram_url: "https://www.instagram.com/explore/tags/snawt/",
-      soundcloud_url: "233433716",
+      soundcloud_url: "",
       user_id: seed_user.id,
       genre_id: Genre.find_by_name(genre_name).id,
       name: performance[:name],
