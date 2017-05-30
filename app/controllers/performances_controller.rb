@@ -11,6 +11,7 @@ class PerformancesController < ApplicationController
                                .joins(:genre)
                                .where('genres.event_type = ?', params[:performance][:event_type])
                                .select { |p| available_for(p, session[:date]) }
+    @genres = Genre.pluck(:event_type).uniq
   end
 
   def new
