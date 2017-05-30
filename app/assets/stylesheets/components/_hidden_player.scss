@@ -1,0 +1,15 @@
+.hidden-player {
+  display: none;
+}
+
+.media-btn {
+  font-size: 50px;
+  color: $light-gray;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  cursor: pointer;
+  &:hover {
+    color: $red;
+  }
+}

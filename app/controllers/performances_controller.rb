@@ -42,6 +42,9 @@ class PerformancesController < ApplicationController
     if @performance.update(performance_params)
       redirect_to @performance
     else
+      @event = Event.new
+      @proposal = Proposal.new
+      @genres = Genre.all.order(:event_type)
       render :show
     end
   end
