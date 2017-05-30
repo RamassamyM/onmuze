@@ -1,5 +1,5 @@
 <div class="dashboard-row">
-  <%=  link_to new_performance_path, class: "dashboard-btn" do %>
+  <%=  link_to new_performance_path, class: "dashboard-btn img img-circle" do %>
     <%= image_tag 'noun_plus.png' %>
   <% end %>
   <h4>My performances</h4>
@@ -16,5 +16,11 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-12">
+      <p>You don't have any performance yet. You can create one by clicking <strong>+</strong></p>
+    </div>
   </div>
 <% end %>

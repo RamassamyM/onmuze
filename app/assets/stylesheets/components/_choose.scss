@@ -1,0 +1,18 @@
+.choose-block {
+  color: $dark-gray;
+  width: 100%;
+  border: 1px solid $light-gray;
+  padding: 25px 60px;
+  height: 175px;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+  display: flex;
+  justify-content: center;
+  align-items :center;
+  transition-timing-function: ease-in;
+  transition: 0.3s;
+
+  &:hover {
+    color: $black;
+    background-color: rgba(238,238,238,0.5);
+  }
+}

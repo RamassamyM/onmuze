@@ -20,7 +20,11 @@
 
   <div class="wrapper-grey">
     <% if @performance.user == current_user %>
-      <%= render 'shared/artist_proposal_card' %>
+      <h4 class="light-headers text-center sm-margin">Manage my proposals</h4>
+      <div id="artist-proposals">
+        <%= render 'shared/artist_proposal_card' %>
+      </div>
+
     <% else %>
       <%= render 'confirmed_proposals' %>
     <% end %>
