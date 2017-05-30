@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 # PerformancesController
 class PerformancesController < ApplicationController
-  before_action :set_performance, only: %i(show)
+  before_action :set_performance, only: %i(show update)
   skip_before_action :authenticate_user!, only: %i(index show)
 
   def index
@@ -32,10 +32,17 @@ class PerformancesController < ApplicationController
   def show
     session[:last_viewed_performance_id] = @performance.id
     @embedded_video = @performance.generate_embedded_youtube
-    @soundcloud_embed = @performance.generate_embedded_soundcloud
-    @embedded_instagram = @performance.generate_instagram
+    # @soundcloud_embed = @performance.generate_embedded_soundcloud
     @event = Event.new
     @proposal = Proposal.new
+  end
+
+  def update
+    if @performance.update(performance_params)
+      redirect_to @performance
+    else
+      render :show
+    end
   end
 
   private

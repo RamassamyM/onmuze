@@ -16,3 +16,23 @@
 .light-headers {
   color: $light-gray;
 }
+
+.edit-banner {
+  opacity: 0;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  &:hover {
+    opacity: 0.8;
+    color: $light-gray;
+  }
+  p {
+    cursor: pointer;
+  }
+}
+
+.update-pic {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
