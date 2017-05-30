@@ -36,6 +36,17 @@ class Performance < ApplicationRecord
     end
   end
 
+
+  # def generate_embedded_soundcloud
+  #   return '' if self.soundcloud_url.empty?
+  #   # embed_url = soundcloud_url.match('/(.+)(api\.soundcloud\.com\/tracks\/)(?<id>[^\&\/]+)(.+)?/')
+  #   # return "" if embed_url.nil?
+  #   # "<iframe width='100%' height='300' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https\%3A//api.soundcloud.com/tracks/#{embed_url[:id]}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>".html_safe
+  #   url = "https://soundcloud.com/oembed?url=" + self.soundcloud_url + "&format=json&maxheight=300"
+  #   soundcloud_serialized = open(url).read
+  #   JSON.parse(soundcloud_serialized)["html"].html_safe
+  # end
+
   def generate_embedded_soundcloud
     begin
     return '' if self.soundcloud_url.empty?

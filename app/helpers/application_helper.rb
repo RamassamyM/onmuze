@@ -34,7 +34,7 @@ module ApplicationHelper
   end
 
   def booked?(performance)
-    user_signed_in? && !performance.proposals.confirmed.empty?
+    !performance.proposals.confirmed.empty?
   end
 
   def place_show_banner(place)

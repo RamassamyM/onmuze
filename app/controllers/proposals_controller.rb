@@ -12,8 +12,8 @@ class ProposalsController < ApplicationController
     @proposal = @performance.proposals.new(event_id: proposal_params[:event_id])
     if @proposal.save
       @event = @proposal.event
+      UserMailer.send_proposal(@performance, @proposal.event).deliver_now
       redirect_to event_path(@event)
-      #UserMailer.send_proposal(@performance, @proposal.event).deliver_now
     else
       @event = Event.new
       render 'performances/show'
