@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'https://www.onmuze.com' }
+  config.action_mailer.default_url_options = { host: 'http://www.onmuze.com' }
   config.action_mailer.perform_deliveries = true
   # SendGrid config
   config.action_mailer.smtp_settings = {
@@ -10,7 +10,8 @@ Rails.application.configure do
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
   }
 
   # Settings specified here will take precedence over

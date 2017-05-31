@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="name-header">
+        <div>
+          <h1><%= @place.name %></h1>
+        </div>
+        <div>
+          <% if @place.user == current_user %>
+            <div id="edit-btn">
+              <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-sm-12 col-lg-10">
+    <p class="text-justify"><%= @place.description %></p>
+  </div>
+</div>
+
+<div class="row" id="edit-form">
+    <div class="col-sm-12 col-lg-10 text-center">
+      <%= simple_form_for @place, method: :put do |f| %>
+        <%= f.input :name, label: false, placeholder: "Name"%>
+        <%= f.input :address, label: false, placeholder: "Address" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= button_tag type: 'submit', class: "custom-form-btn" do %>
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Update my place
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,13 @@ module ApplicationHelper
     end
   end
 
+  def add_navbar_margin
+    if is_home || user_credential_pages
+    else
+      "page-wrapper-navbar-margin"
+    end
+  end
+
   def add_modal_after_signup_if_nothing_created
     if complete_profile?
       render 'pages/modal'

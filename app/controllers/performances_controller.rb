@@ -21,7 +21,12 @@ class PerformancesController < ApplicationController
 
   def create
     @performance = current_user.performances.new(performance_params)
-    if @performance.save
+    test = @performance.test_media
+    if test.values.include?(nil)
+      @genres = Genre.all.order(:event_type)
+      flash[:alert] = test.values.compact.join
+      render :new
+    elsif @performance.save
       redirect_to performance_path(@performance)
     else
       @genres = Genre.all.order(:event_type)
