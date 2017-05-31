@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i(show update)
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @event = Event.where.not(latitude: nil, longitude: nil)

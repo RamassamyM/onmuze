@@ -1,6 +1,6 @@
 <div class="wrapper-content">
   <% if @event.photo %>
-    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @event.photo.path, height: 300, width: 400, crop: :fill %>');">
+    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @event.photo.path %>');">
       <%= render 'shared/update_pic_event' %>
     </div>
 
@@ -12,9 +12,11 @@
   <div class="wrapper">
     <%= render 'events/header_event' %>
   </div>
-  <div>
-    <%= render 'events/search_artist_bar' %>
-  </div>
+  <% if @event.place.user == current_user %>
+    <div>
+      <%= render 'events/search_artist_bar' %>
+    </div>
+  <% end %>
   <div class="wrapper">
     <div class="container">
       <div class="row">
@@ -23,12 +25,15 @@
           <hr>
         </div>
       </div>
+      <% if @event.proposals.confirmed.empty? %>
+        <p>No artist confirmed yet.</p>
+      <% end %>
       <div class="row" id="event_proposals">
         <%= render 'events/proposals_on_event' %>
       </div>
     </div>
   </div>
-  <% if @event.place.user = current_user %>
+  <% if @event.place.user == current_user %>
     <div class="wrapper promote-wrapper">
         <div class="container">
           <div class="row">
@@ -42,22 +47,18 @@
         </div>
     </div>
   <% end %>
+  <div class="wrapper-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 location_banner">
+          <h3>Location</h3>
+          <p><%= @event.place.name %></p>
+          <p><%= @event.place.address %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wapper">
+    <%= render 'places/location_map', latitude: @event.place.latitude, longitude: @event.place.longitude %>
+  </div>
 </div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
