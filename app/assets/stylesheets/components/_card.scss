@@ -29,10 +29,175 @@
   width: 100%;
   bottom: 20px;
 }
+
 .card-description h2 {
   font-size: 24px;
 }
+
 .card-description p {
   font-size: 16px;
   line-height: 12px
+}
+
+.cards {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+  border: 10px white solid;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  h2 {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 0 4px #282626;
+  }
+  p {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: $light-gray;
+    font-weight: bolder;
+    text-shadow: 1px 0 4px #282626;
+  }
+}
+
+// proposal list card
+
+.wrapper-card {
+  background: cover;
+  height: 150px;
+  margin: 10px;
+  position: relative;
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  border: 1px solid $light-gray;
+}
+
+.avatar-block {
+  position: absolute;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 11;
+}
+
+@media (min-width: 992px) {
+  .avatar-block {
+    width: 130px;
+    height: 130px;
+    top: 10px ;
+    left: calc(30% - 65px);
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar-block {
+    width: 100px;
+    height: 100px;
+    top: 25px ;
+    left: calc(30% - 50px);
+  }
+}
+
+@media (min-width: 480px) and (max-width: 992px) {
+  .avatar-block {
+    width: 116px;
+    height: 116px;
+    top: 17px ;
+    left: calc(30% - 58px);
+  }
+}
+
+.banner-block {
+  position: absolute;
+  border-radius: 2px 0 0 2px;
+  z-index: 10;
+  width: 30%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.content-block {
+  position: absolute;
+  right: 0;
+  width: calc(70% - 65px);
+  height: calc(100% - 35px);
+  padding: 24px 20px 30px 10px;
+  overflow: hidden;
+  h4 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+.action-block {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+}
+
+.badge-container-block {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.badge-block {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  text-align: center;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 0 5px;
+}
+
+.badge-block-pending {
+  background: $orange;
+  color: white;
+}
+
+.badge-block-declined {
+  background: $medium-gray;
+  color: white;
+}
+
+.badge-block-confirmed {
+  background: $green;
+  color: white;
+}
+
+.badge-block-accepted {
+  background: $blue;
+  color: white;
+}
+
+.badge-block-unknown {
+  background: $light-gray;
+  color: white;
+}
+
+
+.badge-block-bordered {
+  border: 1px solid $medium-gray;
+  color: $medium-gray;
+  margin-right: 10px;
 }

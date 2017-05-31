@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: %i(show update)
 
   def index
     @event = Event.where.not(latitude: nil, longitude: nil)
@@ -19,12 +20,24 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
     @genres = Genre.all.map(&:event_type).uniq
-    @confirmed_proposals = @event.proposals.confirmed
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      @genres = Genre.all.map(&:event_type).uniq
+      @confirmed_proposals = @event.proposals.confirmed
+      render :show
+    end
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:name, :scheduled_at, :description, :place_id, :photo)

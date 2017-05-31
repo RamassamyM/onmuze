@@ -10,3 +10,12 @@
   padding: 60px 0px;
   background-color: #2C2C2C;
 }
+
+.promote-wrapper {
+  background-color: $dark-gray;
+  color: white;
+
+  span {
+    font-weight: lighter;
+  }
+}

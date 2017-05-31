@@ -1,5 +1,20 @@
 module ApplicationHelper
 
+  def color_according_status(proposal)
+    case proposal
+    when "pending"
+      "badge-block-pending"
+    when "accepted"
+      "badge-block-accepted"
+    when "confirmed"
+      "badge-block-confirmed"
+    when "declined"
+      "badge-block-declined"
+    else
+      "badge-block-unknown"
+    end
+  end
+
   def add_appropriate_navbar
     unless is_home || user_credential_pages
       render 'shared/navbar'
