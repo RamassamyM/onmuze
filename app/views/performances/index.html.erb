@@ -9,25 +9,7 @@
         </div>
       </div>
     <% else %>
-      <div class="row">
-        <% @performances.each do |performance| %>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <%= link_to performance_path(performance) do %>
-              <% if performance.banner.nil? %>
-                <div class="performance-card" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('artist.png');">
-                  <h3 class="performance-name"><%= performance.name %></h3>
-                  <h5 class="performance-genre"><%= performance.genre.name %></h5>
-                </div>
-              <% else %>
-                <div class="performance-card" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('<%= cl_image_path performance.banner.path, height: 250 %>');">
-                  <h3 class="performance-name"><%= performance.name %></h3>
-                  <h5 class="performance-genre"><%= performance.genre.name %></h5>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= render 'performances/index' %>
     <% end %>
   </div>
 </div>
