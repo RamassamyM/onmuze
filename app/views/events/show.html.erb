@@ -21,25 +21,8 @@
           <hr>
         </div>
       </div>
-      <div class="row">
-        <% @event.proposals.accepted.each do |proposal| %>
-          <div class="col-sm-6">
-            <%= render 'proposals/proposal_card', proposal: proposal %>
-          </div>
-        <% end %>
-        <% @event.proposals.pending.each do |proposal| %>
-          <div class="col-sm-6">
-            <%= render 'proposals/proposal_card', proposal: proposal %>
-          </div>
-        <% end %>
-        <div id="confirmed_proposals">
-          <%= render 'events/confirmed_proposals_on_event' %>
-        </div>
-        <% @event.proposals.declined.each do |proposal| %>
-          <div class="col-sm-6">
-          < %= render 'proposals/proposal_card', proposal: proposal %>
-          </div>
-        <% end %>
+      <div class="row" id="event_proposals">
+        <%= render 'events/proposals_on_event' %>
       </div>
     </div>
   </div>
