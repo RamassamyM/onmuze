@@ -63,10 +63,11 @@ class Performance < ApplicationRecord
   end
 
   def generate_soundcloud_id
+    return '' if self.soundcloud_url.empty?
     url = "https://soundcloud.com/oembed?url=" + self.soundcloud_url + "&format=json&maxheight=300"
     soundcloud_serialized = open(url).read
     id = JSON.parse(soundcloud_serialized)["html"]
-    id.match(/.+%2Ftracks%2F(.+)&show.+/)[1]
+    id.match(/.+api.soundcloud.com%2F(.+)&show.+/)[1]
   end
 
   def generate_instagram
