@@ -1,0 +1,5 @@
+<% @event.proposals.confirmed.each do |proposal| %>
+  <div class="col-sm-6">
+    <%= render 'proposals/proposal_card', proposal: proposal %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<div class="wrapper searchbar flexed-centerr">
+  <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
+    <%= f.hidden_field :date, value: @event.scheduled_at %>
+    <%= f.hidden_field :address, value: @event.place.address %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="flexed-center">
+              <%= f.input :event_type, collection: @genres, label: false, input_html: { id: "searchfield"} ,  selected: 1 %>
+              <%= f.submit "Find an artist", class: "btn btn-primary btn-searchbar" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
