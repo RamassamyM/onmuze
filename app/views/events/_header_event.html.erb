@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="name-header sm-margin">
+        <div>
+          <h2 class="bottom-marged"><%= @event.name %></h2>
+          <%= link_to place_path(@event.place) do %>
+            <h4><i class="fa fa-map-marker grey-font" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; <%= @event.place.name %></h4>
+            <% end %>
+          <h4><i class="fa fa-calendar-o grey-font" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<%= @event.scheduled_at.strftime("%A, %d %b %Y ") %></h4>
+          <h4><i class="fa fa-clock-o grey-font" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<%= @event.scheduled_at.strftime("%H:%M") %></h4>
+        </div>
+        <div>
+          <% if @event.place.user == current_user %>
+            <div id="edit-btn">
+              <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-lg-10">
+      <p class="text-justify"><%= @event.description %></p>
+    </div>
+  </div>
+
+  <div class="row" id="edit-form">
+    <div class="col-sm-12 col-lg-10 text-center">
+      <%= simple_form_for @event, method: :put do |f| %>
+        <%= f.input :name, label: false, placeholder: "Name"%>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <%= f.input :scheduled_at, as: :string, input_html: { class: "datetimepicker4" }, label: false, placeholder: "Choose date and time" %>
+        <%= f.button :submit, "Update my event", class: "btn btn-danger btn-lg", id: "btn-home" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,24 @@
+<div class="wrapper-card">
+  <div class="banner-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path proposal.performance.banner.path, width: 200, height: 150, crop: :fill %>');">
+  </div>
+  <div class="avatar-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path proposal.performance.avatar.path, width: 130, height: 130, crop: :fill %>');">
+  </div>
+  <div class="badge-container-block">
+    <div class="badge-block badge-block-bordered">
+      <span><%= proposal.performance.genre.name %></span>
+    </div>
+    <div class="badge-block <%= color_according_status(proposal.status) %>">
+      <%= proposal.status %>
+    </div>
+  </div>
+  <div class="content-block">
+    <h4><%= proposal.performance.name %></h4>
+    <p><%= proposal.performance.description[0..86] %>...</p>
+  </div>
+  <div class="action-block">
+    <% if proposal.accepted? %>
+      <%= link_to "Confirm", proposal_path(proposal, proposal: { event_id: @event.id, status: 'confirmed' }), class: "btn btn-default btn-confirm btn-xs", method: :put, remote: true %>
+    <% end %>
+  </div>
+</div>
+

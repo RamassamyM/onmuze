@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :store_current_location, :unless => :devise_controller?
 
+  def default_url_options
+    { host: ENV['HOST'] || 'localhost:3000' }
+  end
+
   private
 
   def after_sign_out_path_for(resource_or_scope)
@@ -14,7 +18,3 @@ class ApplicationController < ActionController::Base
     store_location_for(:user, request.url)
   end
 end
-
-
-
-
