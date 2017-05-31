@@ -10,16 +10,18 @@
     <div class="logo">
       <%= image_tag "onmuze_logo.png" %>
     </div>
-    <h4>Create your events with nice artists and promote them easily</h4>
+    <h2>Create your events with nice artists and promote them easily</h2>
     <% unless current_user %>
       <%= link_to "Create for free", new_user_registration_path, class: "btn btn-primary btn-lg" %>
     <% end %>
   </div>
-  <p>or</p>
-  <p>find artists, places, events in your city</p>
-  <%= link_to "#search", class: "no-link-style" do %>
-    <i class="fa fa-caret-down fa-3x"></i>
-  <% end %>
+  <div class="text-center" id="banner-find">
+    <p>or</p>
+    <p>find artists, places, events in your city</p>
+    <%= link_to "#search", class: "no-link-style" do %>
+      <i class="fa fa-caret-down fa-3x"></i>
+    <% end %>
+  </div>
 </div>
 
 <%= render 'site_stats' %>
