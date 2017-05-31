@@ -1,18 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-6">
-      <% unless @embedded_video == 'error'  %>
-      <div class="sm-padded">
-        <%= @embedded_video %>
-      </div>
+      <% if !@performance.youtube_url.empty? %>
+        <div class="sm-padded">
+          <%= @embedded_video %>
+        </div>
+      <% else %>
+        <div class="sm-padded text-center">
+          <h1><i class="fa fa-youtube" aria-hidden="true"></i></h1>
+        </div>
       <% end %>
     </div>
 
     <div class="col-sm-12 col-md-6">
-      <% unless @soundcloud_embed =='error' %>
-      <div class="sm-padded">
-        <%= @soundcloud_embed %>
-      </div>
+      <% if !@performance.soundcloud_url.empty? %>
+        <div class="sm-padded">
+          <%= @soundcloud_embed %>
+        </div>
+      <% else %>
+        <div class="sm-padded text-center">
+          <h1><i class="fa fa-soundcloud" aria-hidden="true"></i></h1>
+        </div>
       <% end %>
     </div>
   </div>
