@@ -9,8 +9,6 @@
    justify-content: space-between;
    align-items: center;
    font-size: 24px;
-   padding: 10px;
-   height: 30vh;
    vertical-align: middle;
  }
 
@@ -46,13 +44,12 @@
    font-style: italic;
  }
 
- #search {
+ .search {
    display: flex;
    flex-direction: row;
    align-items: center;
    justify-content: center;
-   background-color: $black;
-   padding: 35px 0 20px;
+   background-color: $dark-gray;
  }
 
  #home-banner {
@@ -60,4 +57,8 @@
    flex-direction: column;
    justify-content: space-around;
    align-items: center;
+ }
+
+ .btn-banner-home {
+  font-weight: lighter;
  }
