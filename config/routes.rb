@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :events, only: %i(create)
   resources :proposals, only: %i(update)
+  resources :promotion, only: %i(show create)
   root 'pages#startdirect'
   get 'home', to: 'pages#home'
   get 'choose', to: 'pages#choose'
