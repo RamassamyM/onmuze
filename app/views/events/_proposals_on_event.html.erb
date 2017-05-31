@@ -1,20 +1,24 @@
-<% @event.proposals.accepted.each do |proposal| %>
-  <div class="col-sm-6">
-    <%= render 'proposals/proposal_card', proposal: proposal %>
-  </div>
-<% end %>
-<% @event.proposals.pending.each do |proposal| %>
-  <div class="col-sm-6">
-    <%= render 'proposals/proposal_card', proposal: proposal %>
-  </div>
+<% if @event.place.user == current_user %>
+  <% @event.proposals.accepted.each do |proposal| %>
+    <div class="col-sm-6">
+      <%= render 'proposals/proposal_card', proposal: proposal %>
+    </div>
+  <% end %>
+  <% @event.proposals.pending.each do |proposal| %>
+    <div class="col-sm-6">
+      <%= render 'proposals/proposal_card', proposal: proposal %>
+    </div>
+  <% end %>
 <% end %>
 <% @event.proposals.confirmed.each do |proposal| %>
   <div class="col-sm-6">
     <%= render 'proposals/proposal_card', proposal: proposal %>
   </div>
 <% end %>
-<% @event.proposals.declined.each do |proposal| %>
-  <div class="col-sm-6">
-  <%= render 'proposals/proposal_card', proposal: proposal %>
-  </div>
+<% if @event.place.user == current_user %>
+  <% @event.proposals.declined.each do |proposal| %>
+    <div class="col-sm-6">
+    <%= render 'proposals/proposal_card', proposal: proposal %>
+    </div>
+  <% end %>
 <% end %>

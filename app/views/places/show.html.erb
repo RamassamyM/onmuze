@@ -3,19 +3,15 @@
     <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @place.photo.path %>');">
       <%= render 'places/update_pic_place', place: @place %>
     </div>
-
   <% else %>
     <%= render 'shared/banner-with-asset', asset_url: image_url('places.jpg'), place: @place %>
   <% end %>
-
   <div class="wrapper">
     <%= render 'header' %>
   </div>
-
   <div class="wrapper">
     <%= render 'create_new_event' %>
   </div>
-
   <div class="wrapper">
     <div class="container">
       <div class="row">
@@ -26,15 +22,12 @@
     </div>
     <%= render 'event_card_show' %>
   </div>
-
   <div class="wrapper-grey">
     <%= render 'location_banner' %>
   </div>
-
   <div class="wapper">
     <%= render 'location_map', latitude: @place.latitude, longitude: @place.longitude %>
   </div>
-
 </div>
 
 <% content_for :title, @place.name %>
