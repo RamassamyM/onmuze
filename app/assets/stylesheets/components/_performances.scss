@@ -20,6 +20,7 @@
   left: 20px;
   font-size: 30px;
   font-family: $header-font;
+  color: $light-gray;
 }
 
 .performance-genre {
@@ -28,4 +29,10 @@
   left: 10px;
   font-family: $sub-header-font;
   font-style: italic;
+  color: $light-gray;
+}
+
+.layer-card {
+  width: 100%;
+  height: 100%;
 }

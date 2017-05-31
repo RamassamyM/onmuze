@@ -19,7 +19,6 @@ class Performance < ApplicationRecord
     errors = {}
     errors[:soundcloud] = self.generate_embedded_soundcloud == 'error' ? "Your soundcloud url is not valid." : nil
     errors[:youtube] = self.generate_embedded_youtube == 'error' ? "Your youtube url is not valid." : nil
-    errors[:instagram] = self.generate_instagram == 'error' ? "Your instagram url is not valid." : nil
     errors
   end
 
@@ -61,6 +60,14 @@ class Performance < ApplicationRecord
       puts "Handle missing soundcloud here"
       return 'error'
     end
+  end
+
+  def generate_soundcloud_id
+    return '' if self.soundcloud_url.empty?
+    url = "https://soundcloud.com/oembed?url=" + self.soundcloud_url + "&format=json&maxheight=300"
+    soundcloud_serialized = open(url).read
+    id = JSON.parse(soundcloud_serialized)["html"]
+    id.match(/.+api.soundcloud.com%2F(.+)&show.+/)[1]
   end
 
   def generate_instagram

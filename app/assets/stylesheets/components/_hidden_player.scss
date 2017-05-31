@@ -1,0 +1,19 @@
+.hidden-player {
+  display: none;
+}
+
+.play-btn, .pause-btn {
+  font-size: 50px;
+  color: $light-gray;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  &:hover {
+    color: $red;
+  }
+}
+
+.pause-btn {
+  display: none;
+}

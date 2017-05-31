@@ -22,7 +22,7 @@ class PerformancesController < ApplicationController
   def create
     @performance = current_user.performances.new(performance_params)
     test = @performance.test_media
-    if test.values.include?(nil)
+    if !test.values.include?(nil)
       @genres = Genre.all.order(:event_type)
       flash[:alert] = test.values.compact.join
       render :new
@@ -37,7 +37,7 @@ class PerformancesController < ApplicationController
   def show
     session[:last_viewed_performance_id] = @performance.id
     @embedded_video = @performance.generate_embedded_youtube
-    # @soundcloud_embed = @performance.generate_embedded_soundcloud
+    @soundcloud_embed = @performance.generate_embedded_soundcloud
     @event = Event.new
     @proposal = Proposal.new
     @genres = Genre.all.order(:event_type)
@@ -47,6 +47,9 @@ class PerformancesController < ApplicationController
     if @performance.update(performance_params)
       redirect_to @performance
     else
+      @event = Event.new
+      @proposal = Proposal.new
+      @genres = Genre.all.order(:event_type)
       render :show
     end
   end
