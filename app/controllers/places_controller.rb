@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  before_action :set_place, only: %i(show update)
+
   def index
     @places = current_user.places
     @place = Place.where.not(latitude: nil, longitude: nil)
@@ -24,13 +26,24 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find(params[:id])
     @event = Event.new
+  end
+
+  def update
+    if @place.update(place_params)
+      redirect_to @place
+    else
+      render :show
+    end
   end
 
   private
 
   def place_params
     params.require(:place).permit(:name, :address, :description, :photo)
+  end
+
+  def set_place
+    @place = Place.find(params[:id])
   end
 end
