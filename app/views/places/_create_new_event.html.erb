@@ -18,28 +18,5 @@
         </div>
       </div>
     <% end %>
-</div>
-
-  <% else %>
-    <h4><i class="fa fa-share" aria-hidden="true"></i> Share</h4>
-    <ul class="list-inline social">
-      <li>
-        <%= link_to "http://www.facebook.com/sharer.php?u=#{performance_url(@performance)}", target: :blank do %>
-          <i class="fa fa-facebook-official" aria-hidden="true"></i>
-        <% end %>
-      </li>
-
-      <li>
-        <%= link_to "https://twitter.com/home?status=#{performance_url(@performance)}", target: :blank do %>
-          <i class="fa fa-twitter-square" aria-hidden="true"></i>
-        <% end %>
-      </li>
-
-      <li>
-        <%= link_to "https://plus.google.com/share?url=#{performance_url(@performance)}", target: :blank do %>
-          <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-        <% end %>
-      </li>
-    </ul>
   <% end %>
 </div>
