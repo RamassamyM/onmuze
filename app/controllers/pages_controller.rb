@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:startdirect, :home]
+  before_action :set_searched_in_session, only: :home
 
   def startdirect
    if !user_signed_in?
