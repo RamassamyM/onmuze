@@ -40,7 +40,10 @@
             <div class="col-xs-12">
               <div class="flexed-center">
                 <div class="right-marged div-text"><span>Pay 10€ to <strong>promote</strong> your event 10 times on Facebook and to be referenced  in 10 events  websites.</span></div>
-                <a href="" class="btn btn-danger">Promote now</a>
+                <%= simple_form_for [@event, @promotion] do |f| %>
+                  <%= f.submit "Promote now", class: "btn custom-red-btn"%>
+                <% end %>
+                <%#= link_to 'Pomote now', event_promotions_path(@event) %>
               </div>
             </div>
           </div>
