@@ -6,6 +6,7 @@
           <h2 class="bottom-marged"><%= @event.name %></h2>
           <%= link_to place_path(@event.place) do %>
             <h4><i class="fa fa-map-marker grey-font" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; <%= @event.place.name %></h4>
+            <hr>
             <% end %>
           <h4><i class="fa fa-calendar-o grey-font" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<%= @event.scheduled_at.strftime("%A, %d %b %Y ") %></h4>
           <h4><i class="fa fa-clock-o grey-font" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<%= @event.scheduled_at.strftime("%H:%M") %></h4>
