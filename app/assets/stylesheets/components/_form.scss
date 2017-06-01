@@ -44,3 +44,10 @@
 #btn-create-event {
   width: 100%;
 }
+
+.inline-search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

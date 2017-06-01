@@ -1,7 +1,7 @@
 <div class="distributed">
   <%= render "shared/link-to-backhome" %>
   <div>
-    <%= image_tag "onmuze_logo_black_symbol", class: "logo-devise-pages"%>
+    <%= image_tag "onmuze_logo_black_symbol.png", class: "logo-devise-pages"%>
   </div>
   <div class="cheek"></div>
 </div>
@@ -19,7 +19,7 @@
           <%= f.input :password_confirmation, required: true, label: false, placeholder: "Confirm password" %>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "btn btn-primary btn-form-devise" %>
+          <%= f.button :submit, "Sign up", class: "btn btn-danger btn-form-devise" %>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>

@@ -1,21 +1,21 @@
 <div class="container text-center">
   <% if @performance.user == current_user %>
-      <%= link_to "Upcoming events in my city", root_path, class: "btn btn-lg custom-red-btn" %>
+      <%= link_to "Upcoming events in my city", root_path, class: "btn btn-danger" %>
 
   <% elsif owner? %>
+  <div class="wrapper-form bg-grey">
     <%= simple_form_for [@performance, @proposal] do |f| %>
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-          <%= f.input :event_id, label: false, prompt: "Choose your event", collection: current_user.events, :label_method => lambda { |event| "#{event.name} | #{event.scheduled_at.strftime('%d/%m/%Y')}" }, value_method: :id, include_blank: false, input_html: { class: "input-lg" } %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+          <%= f.input :event_id, label: false, prompt: "Choose your event", collection: current_user.events, :label_method => lambda { |event| "#{event.name} | #{event.scheduled_at.strftime('%d/%m/%Y')}" }, value_method: :id, include_blank: false %>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
-          <%= f.submit "Send a proposal", class: "btn btn-lg custom-red-btn"%>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= f.submit "Send a proposal", class: "btn btn-danger"%>
         </div>
       </div>
     <% end %>
+  </div>
 
   <% else %>
     <h4><i class="fa fa-share" aria-hidden="true"></i> Share</h4>

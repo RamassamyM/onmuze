@@ -1,15 +1,17 @@
 <% content_for :title, "Find an artist" %>
-<div class="wrapper-content">
+<div class="wrapper-form text-center inline-search-bar bg-grey">
   <%= render 'pages/home_form' %>
-  <div class="container">
-    <% if @performances.empty? %>
-      <div class="row">
-        <div class="col-md-12">
-          <p>No results found for your query, try another research</p>
-        </div>
-      </div>
-    <% else %>
-      <%= render 'performances/index' %>
-    <% end %>
-  </div>
 </div>
+
+<div class="container">
+  <% if @performances.empty? %>
+    <div class="row">
+      <div class="col-md-12">
+        <p>No results found for your query, try another research</p>
+      </div>
+    </div>
+  <% else %>
+    <%= render 'performances/index' %>
+  <% end %>
+</div>
+

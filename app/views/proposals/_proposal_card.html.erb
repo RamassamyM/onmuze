@@ -1,10 +1,22 @@
 <div class="wrapper-card">
-  <div class="banner-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path proposal.performance.banner.path, width: 200, height: 150, crop: :fill %>');">
-  </div>
-  <%= link_to performance_path(proposal.performance) do %>
-    <div class="avatar-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path proposal.performance.avatar.path, width: 130, height: 130, crop: :fill %>');">
+  <% if proposal.performance.banner %>
+    <div class="banner-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path proposal.performance.banner.path, width: 200, height: 150, crop: :fill %>');">
+    </div>
+  <% else %>
+    <div class="banner-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('http://res.cloudinary.com/onmuze/image/upload/v1496245022/egb8xav5ylcsgdfaqfuf.jpg');">
     </div>
   <% end %>
+
+  <%= link_to performance_path(proposal.performance) do %>
+    <% if proposal.performance.avatar %>
+      <div class="avatar-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('<%= cl_image_path proposal.performance.avatar.path, width: 130, height: 130, crop: :fill %>');">
+      </div>
+    <% else %>
+      <div class="avatar-block" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 50%), url('http://res.cloudinary.com/onmuze/image/upload/c_scale,w_400/v1496244983/m6tpq0mtrotgzunpkkaa.jpg');">
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="badge-container-block">
     <div class="badge-block badge-block-bordered">
       <span><%= proposal.performance.genre.name %></span>

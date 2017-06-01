@@ -1,37 +1,36 @@
-<% content_for :title, @performance.name %>
-<div class="wrapper-content">
-  <% if @performance.banner %>
-    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @performance.banner.path %>');">
-      <%= render 'shared/update_pic' %>
+<% if @performance.banner %>
+  <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @performance.banner.path %>');">
+    <%= render 'shared/update_pic' %>
+  </div>
+
+<% else %>
+  <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('http://res.cloudinary.com/onmuze/image/upload/v1496237409/artist_wcasg4.png');">
+    <%= render 'shared/update_pic' %>
+  </div>
+<% end %>
+
+<div class="wrapper">
+  <%= render 'performances/header' %>
+</div>
+
+<div class="wrapper-form bg-grey">
+  <%= render 'performances/user_choices' %>
+</div>
+
+<div class="wrapper">
+  <%= render 'performances/media' %>
+</div>
+
+<div class="wrapper-form bg-grey">
+  <% if @performance.user == current_user %>
+    <h4 class="light-headers text-center sm-margin">Manage my proposals</h4>
+    <div id="artist-proposals">
+      <%= render 'shared/artist_proposal_card' %>
     </div>
 
   <% else %>
-    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('http://res.cloudinary.com/onmuze/image/upload/v1496237409/artist_wcasg4.png');">
-      <%= render 'shared/update_pic' %>
-    </div>
+    <%= render 'performances/confirmed_proposals' %>
   <% end %>
-
-  <div class="wrapper">
-    <%= render 'performances/header' %>
-  </div>
-
-  <div class="wrapper-grey">
-    <%= render 'performances/media' %>
-  </div>
-
-  <div class="wrapper">
-    <%= render 'performances/user_choices' %>
-  </div>
-
-  <div class="wrapper-grey">
-    <% if @performance.user == current_user %>
-      <h4 class="light-headers text-center sm-margin">Manage my proposals</h4>
-      <div id="artist-proposals">
-        <%= render 'shared/artist_proposal_card' %>
-      </div>
-
-    <% else %>
-      <%= render 'performances/confirmed_proposals' %>
-    <% end %>
-  </div>
 </div>
+
+<% content_for :title, @performance.name %>

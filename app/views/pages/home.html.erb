@@ -1,4 +1,4 @@
-<% content_for :title, "Welcome to onmuze" %>
+
 <div class="alert alert-warning" id="search-alert">
   Please fill address, event type and date fields
 </div>
@@ -10,7 +10,6 @@
     <div class="logo">
       <%= image_tag "onmuze_logo.png" %>
     </div>
-
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
@@ -18,7 +17,7 @@
         </div>
       </div>
     </div>
-    <%= link_to "Create for free", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Create for free", new_user_registration_path, class: "btn btn-danger btn-lg" %>
   </div>
   <div class="find-content text-center">
     <p>or find artists, places, events in your city</p>
@@ -28,8 +27,17 @@
   </div>
 </div>
 
-<%= render 'site_stats' %>
-<%= render 'home_form' %>
-<%= render 'last_events' %>
-<%= render 'last_performances' %>
-<%= render 'last_places' %>
+<div class="wrapper">
+  <%= render 'site_stats' %>
+</div>
+<div class="wrapper-form text-center inline-search-bar bg-grey" id="search">
+  <%= render 'home_form' %>
+</div>
+<div class="wrapper">
+  <%= render 'last_events' %>
+  <%= render 'last_performances' %>
+  <%= render 'last_places' %>
+</div>
+
+
+<% content_for :meta_title, "Welcome to onmuze | create your events" %>

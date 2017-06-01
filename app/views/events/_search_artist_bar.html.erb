@@ -1,4 +1,4 @@
-<div class="wrapper searchbar flexed-centerr">
+<div class="wrapper-form searchbar flexed-center">
   <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
     <%= f.hidden_field :date, value: @event.scheduled_at %>
     <%= f.hidden_field :address, value: @event.place.address %>
@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
           <div class="flexed-center">
               <%= f.input :event_type, collection: @genres, label: false, input_html: { id: "searchfield"} ,  selected: 1 %>
-              <%= f.submit "Find an artist", class: "btn btn-primary btn-searchbar" %>
+              <%= f.submit "Find an artist", class: "btn btn-danger btn-searchbar" %>
           </div>
         </div>
       </div>

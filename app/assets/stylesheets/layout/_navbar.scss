@@ -11,16 +11,15 @@
   justify-content: space-between;
   a {
     color: $dark-gray;
-    font-size: 14px;
-
-    &:hover {
-      color: $blue;
-    }
+    font-size: 14px
+  }
+  a:hover {
+    color: $green;
   }
 }
 
 .user-pic:hover {
-  color: $blue;
+  color: $green;
 }
 
 /* Optional class to fix the navbar on top */
@@ -53,11 +52,11 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $red;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: $blue;
+  color: $red;
   text-decoration: none;
 }
 
