@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
-    <h3>Last concert places</h3>
-    <hr>
+    <div class="col-xs-12">
+      <h3>Last concert places</h3>
+      <hr>
+    </div>
     <% @last_places.each do |place| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= link_to place_path(place) do %>
