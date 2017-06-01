@@ -37,6 +37,14 @@
   }
 }
 
+.xs-logo {
+  display: none;
+  opacity: 0.9;
+  img {
+    width: 250px;
+  }
+}
+
 .banner-content {
   flex: 1 1 auto;
   display: flex;
