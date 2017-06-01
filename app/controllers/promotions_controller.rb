@@ -27,7 +27,7 @@ class PromotionsController < ApplicationController
 
   def post_on_fb(promotion)
     graph = Koala::Facebook::API.new(ENV['FB_TOKEN'])
-    graph.put_connections("me", "feed", message: promotion.message, link: promotion.picture_url)
+    graph.put_connections("me", "feed", message: promotion.message, picture: 'http://res.cloudinary.com/onmuze/image/upload/v1496241330/lrfvqzybfp61fiarrr9w.jpg', link: 'www.onmuze.com')
   end
 
   def get_picture_url(event)
