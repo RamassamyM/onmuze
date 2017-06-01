@@ -3,7 +3,7 @@
     <h3>Last concert places</h3>
     <hr>
     <% @last_places.each do |place| %>
-      <div class="col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= link_to place_path(place) do %>
           <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place_show_card(place) %>');">
             <h3 class="card-title"><%= place.name %></h3>

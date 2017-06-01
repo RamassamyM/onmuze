@@ -8,7 +8,7 @@
 <% if current_user.performances.any? %>
   <div class="row">
     <% current_user.performances.each do |performance| %>
-      <div class="col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= link_to performance_path(performance) do %>
           <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= performance_show_card(performance) %>');">
             <h3 class="card-title"><%= performance.name %></h3>
