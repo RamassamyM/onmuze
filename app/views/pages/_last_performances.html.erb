@@ -5,9 +5,9 @@
     <% @last_performances.each do |performance| %>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <%= link_to performance_path(performance) do %>
-          <div class="home-card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= performance_show_card(performance) %>');">
-            <h3 class="home-card-title"><%= performance.name %></h3>
-            <p class="home-card-description"><%= performance.genre.name %></p>
+          <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= performance_show_card(performance) %>');">
+            <h3 class="card-title"><%= performance.name %></h3>
+            <p class="card-description"><%= performance.genre.name %></p>
           </div>
         <% end %>
       </div>

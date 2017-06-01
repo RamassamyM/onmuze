@@ -3,15 +3,25 @@
   <%= render 'pages/home_form' %>
 </div>
 
-<div class="container">
+<div class="wrapper">
   <% if @performances.empty? %>
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <p>No results found for your query, try another research</p>
       </div>
     </div>
+  </div>
   <% else %>
-    <%= render 'performances/index' %>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Artists</h3>
+        <hr>
+          <%= render 'performances/index' %>
+    <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
