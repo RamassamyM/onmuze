@@ -13,15 +13,15 @@
   <%= render 'performances/header' %>
 </div>
 
-<div class="wrapper">
-  <%= render 'performances/media' %>
-</div>
-
 <div class="wrapper-form bg-grey">
   <%= render 'performances/user_choices' %>
 </div>
 
 <div class="wrapper">
+  <%= render 'performances/media' %>
+</div>
+
+<div class="wrapper-form bg-grey">
   <% if @performance.user == current_user %>
     <h4 class="light-headers text-center sm-margin">Manage my proposals</h4>
     <div id="artist-proposals">
