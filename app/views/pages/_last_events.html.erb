@@ -5,9 +5,9 @@
     <% @last_events.each do |event| %>
       <div class="col-md-4">
         <%= link_to event_path(event) do %>
-        <div class="home-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event_show_card(event) %>');">
-          <h3 class="home-card-title"><%= event.name %></h3>
-          <div class="home-card-description">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event_show_card(event) %>');">
+          <h3 class="card-title"><%= event.name %></h3>
+          <div class="card-description">
             <p><%= event.scheduled_at.strftime("%d/%m/%Y %H:%M") if event.scheduled_at %></p>
           </div>
         </div>

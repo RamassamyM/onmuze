@@ -2,13 +2,13 @@
   <div class="row">
     <% @place.events.each do |event| %>
       <div class="col-md-4">
-        <div id="events-list">
+        <div id="card-list">
           <%= link_to event_path(event) do %>
-            <div class="event-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event_show_card(event) %>');">
-              <div class="event-card-title">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)90%), url('<%= event_show_card(event) %>');">
+              <div class="card-title">
                 <h3><%= event.name %></h3>
               </div>
-              <div class="event-card-description">
+              <div class="card-description">
                 <p><%= event.scheduled_at.strftime("%d/%m/%Y") if event.scheduled_at %></p>
                 <p><%= event.scheduled_at.strftime("%H:%M") if event.scheduled_at %></p>
               </div>
