@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
-    <h3>Last events</h3>
-    <hr>
+    <div class="col-xs-12">
+      <h3>Last events</h3>
+      <hr>
+    </div>
     <% @last_events.each do |event| %>
       <div class="col-md-4">
         <%= link_to event_path(event) do %>
