@@ -10,12 +10,11 @@
   align-items: center;
   justify-content: space-between;
   a {
-    color: $dark-gray;
-    font-size: 14px;
-
+    color: $light-gray;
+    font-size: 14px
+  }
     &:hover {
       color: $red;
-    }
   }
 }
 
