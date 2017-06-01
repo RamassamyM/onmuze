@@ -10,16 +10,16 @@
   align-items: center;
   justify-content: space-between;
   a {
-    color: $light-gray;
+    color: $dark-gray;
     font-size: 14px
   }
-    &:hover {
-      color: $red;
+  a:hover {
+    color: $green;
   }
 }
 
 .user-pic:hover {
-  color: $red;
+  color: $green;
 }
 
 /* Optional class to fix the navbar on top */
