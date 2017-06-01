@@ -1,64 +1,62 @@
-<div class="wrapper-content">
-  <% if @event.photo %>
-    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @event.photo.path %>');">
-      <%= render 'shared/update_pic_event' %>
-    </div>
 
-  <% else %>
-    <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('http://res.cloudinary.com/onmuze/image/upload/v1496228652/event_fsfk2x.jpg');">
-      <%= render 'shared/update_pic_event' %>
-    </div>
-  <% end %>
-  <div class="wrapper">
-    <%= render 'events/header_event' %>
+<% if @event.photo %>
+  <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('<%= cl_image_path @event.photo.path %>');">
+    <%= render 'shared/update_pic_event' %>
   </div>
-  <% if @event.place.user == current_user %>
-    <div>
-      <%= render 'events/search_artist_bar' %>
-    </div>
-  <% end %>
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h3>Featuring</h3>
-          <hr>
-        </div>
-      </div>
-      <% if @event.proposals.confirmed.empty? %>
-        <p>No artist confirmed yet.</p>
-      <% end %>
-      <div class="row" id="event_proposals">
-        <%= render 'events/proposals_on_event' %>
+<% else %>
+  <div class="banner-show" style="background-image: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.2), rgba(0,0,0,1)), url('http://res.cloudinary.com/onmuze/image/upload/v1496228652/event_fsfk2x.jpg');">
+    <%= render 'shared/update_pic_event' %>
+  </div>
+<% end %>
+<div class="wrapper">
+  <%= render 'events/header_event' %>
+</div>
+<% if @event.place.user == current_user %>
+  <div>
+    <%= render 'events/search_artist_bar' %>
+  </div>
+<% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Featuring</h3>
+        <hr>
       </div>
     </div>
+    <% if @event.proposals.confirmed.empty? %>
+      <p>No artist confirmed yet.</p>
+    <% end %>
+    <div class="row" id="event_proposals">
+      <%= render 'events/proposals_on_event' %>
+    </div>
   </div>
-  <% if @event.place.user == current_user %>
-    <div class="wrapper promote-wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="flexed-center">
-                <div class="right-marged div-text"><span>Pay 10€ to <strong>promote</strong> your event 10 times on Facebook and to be referenced  in 10 events  websites.</span></div>
-                <a href="" class="btn btn-danger">Promote now</a>
-              </div>
+</div>
+<% if @event.place.user == current_user %>
+  <div class="wrapper promote-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="flexed-center">
+              <div class="right-marged div-text"><span>Pay 10€ to <strong>promote</strong> your event 10 times on Facebook and to be referenced  in 10 events  websites.</span></div>
+              <a href="" class="btn btn-danger">Promote now</a>
             </div>
           </div>
         </div>
-    </div>
-  <% end %>
-  <div class="wrapper-grey">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 location_banner">
-          <h3>Location</h3>
-          <p><%= @event.place.name %></p>
-          <p><%= @event.place.address %></p>
-        </div>
+      </div>
+  </div>
+<% end %>
+<div class="wrapper-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 location_banner">
+        <h3>Location</h3>
+        <p><%= @event.place.name %></p>
+        <p><%= @event.place.address %></p>
       </div>
     </div>
   </div>
-  <div class="wapper">
-    <%= render 'places/location_map', latitude: @event.place.latitude, longitude: @event.place.longitude %>
-  </div>
+</div>
+<div class="wapper">
+  <%= render 'places/location_map', latitude: @event.place.latitude, longitude: @event.place.longitude %>
 </div>

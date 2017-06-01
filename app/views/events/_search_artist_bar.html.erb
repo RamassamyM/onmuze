@@ -1,4 +1,4 @@
-<div class="wrapper searchbar flexed-centerr">
+<div class="wrapper-form searchbar flexed-center">
   <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
     <%= f.hidden_field :date, value: @event.scheduled_at %>
     <%= f.hidden_field :address, value: @event.place.address %>

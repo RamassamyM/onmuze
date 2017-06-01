@@ -1,6 +1,6 @@
 <div class="text-center">
   <% if owner? %>
-    <div class="row" id="search">
+    <div class="row inline-search-bar">
       <%= simple_form_for @event do |f| %>
         <div class="col-md-3">
           <%= f.input :name, label: false, placeholder: "Name " %>
