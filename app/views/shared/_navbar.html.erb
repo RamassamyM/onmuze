@@ -53,14 +53,14 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li class="text-center" style="color: #999;"><%= current_user.email %></li>
           <li>
-            <%= link_to root_path do %>
-              <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+            <%= link_to dashboard_path do %>
+              <i class="fa fa-th" aria-hidden="true"></i> Dashboard
             <% end %>
           </li>
 
           <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <%= link_to root_path do %>
+              <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
             <% end %>
           </li>
 
@@ -73,6 +73,12 @@
           <li>
             <%= link_to new_performance_path do %>
               <i class="fa fa-plus-circle"></i> Add a performance
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
         </ul>
