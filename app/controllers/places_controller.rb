@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: %i(show update)
+  skip_before_action :authenticate_user!, only: %i(show)
 
   def index
     @places = current_user.places

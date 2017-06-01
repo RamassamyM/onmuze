@@ -75,7 +75,7 @@ print "Seeding events for a place"
 event_photo_urls = [
   "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495547650/background_yrtacl.jpg",
   "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_1920/v1495564300/pexels-photo-169594_tebodg.jpg",
-  "http://res.cloudinary.com/ubiram/image/upload/v1495813328/k9hc0yaauwipgqgzrlpj.jpg"
+  "http://res.cloudinary.com/onmuze/image/upload/v1496233428/irvypwnofjlvat2kwlgr.jpg"
 ]
 events = [
   {

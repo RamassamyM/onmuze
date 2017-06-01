@@ -9,7 +9,7 @@
           <%= f.input :scheduled_at, as: :string, input_html: { class: "datetimepicker4" }, label: false, placeholder: "Date and time" %>
         </div>
         <div class="col-md-3">
-          <%= f.association :place, prompt: "Choose your place", label: false %>
+          <%= f.association :place, collection: current_user.places, prompt: "Choose your place", label: false %>
         </div>
         <div class="col-md-3">
           <div class="flexed-left">
