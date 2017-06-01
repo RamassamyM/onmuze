@@ -3,6 +3,7 @@ require 'open-uri'
 # PerformancesController
 class PerformancesController < ApplicationController
   before_action :set_performance, only: %i(show update)
+  before_action :set_searched_in_session, only: [:index]
   skip_before_action :authenticate_user!, only: %i(index show)
 
   def index
@@ -12,6 +13,7 @@ class PerformancesController < ApplicationController
                                .where('genres.event_type = ?', params[:performance][:event_type])
                                .select { |p| available_for(p, session[:date]) }
     @genres = Genre.pluck(:event_type).uniq
+    store_search_infos_in_session(performance_params)
   end
 
   def new
@@ -56,12 +58,19 @@ class PerformancesController < ApplicationController
 
   private
 
+  def store_search_infos_in_session(search_infos)
+    session[:searched] = { address: search_infos[:address],
+              date: search_infos[:date],
+              event_type: search_infos[:event_type]
+    }
+  end
+
   def set_performance
     @performance = Performance.find(params[:id])
   end
 
   def performance_params
-    params.require(:performance).permit(
+    params.require(:performance).permit(:date, :event_type,
       :user_id, :genre_id, :name, :description, :address, :youtube_url,
       :facebook_url, :instagram_url, :soundcloud_url, :avatar, :banner
     )

@@ -2,15 +2,15 @@
   <div class="row">
     <%= simple_form_for :performance, url: performances_path, method: :get do |f| %>
       <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-2 col-md-offset-2">
-        <%= f.input :address, placeholder: "City", input_html: { class: "input-md" }, label_html: { class: "hidden" } %>
+        <%= f.input :address, placeholder: "City", input_html: { class: "input-md", value: session[:searched][:address] }, label_html: { class: "hidden" } %>
       </div>
 
       <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-2">
-        <%= f.input :event_type, collection: @genres, default: 1, input_html: { class: "input-md" }, label_html: { class: "hidden" } %>
+        <%= f.input :event_type, collection: @genres, selected: session[:searched][:event_type], input_html: { class: "input-md" }, label_html: { class: "hidden" } %>
       </div>
 
       <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-2">
-        <%= f.input :date, as: :string, input_html: { class: "input-md datepicker placeholder-padding" }, label_html: { class: "hidden" }, placeholder: "Pick a date" %>
+        <%= f.input :date, as: :string, input_html: { class: "input-md datepicker placeholder-padding", value: session[:searched][:date] }, label_html: { class: "hidden" }, placeholder: "Pick a date" %>
       </div>
 
       <div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-0 col-md-1">

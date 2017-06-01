@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
   def store_current_location
     store_location_for(:user, request.url)
   end
+
+  def set_searched_in_session
+    session[:searched] ||= {}
+    session[:searched] = session[:searched].inject({}) { |memo, (k, v)| memo[k.to_sym] = v; memo}
+  end
 end
