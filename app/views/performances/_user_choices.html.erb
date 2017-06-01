@@ -3,7 +3,6 @@
       <%= link_to "Upcoming events in my city", root_path, class: "btn btn-danger" %>
 
   <% elsif owner? %>
-  <div class="wrapper-form bg-grey">
     <%= simple_form_for [@performance, @proposal] do |f| %>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
