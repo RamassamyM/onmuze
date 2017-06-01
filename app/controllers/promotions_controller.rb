@@ -1,16 +1,12 @@
 class PromotionsController < ApplicationController
 
-  def index
-    root
-  end
-
   def create
     @event = Event.find(params[:event_id])
     @promotion = @event.promotions.new()
     @promotion.name = @event.name
     message_array = []
     @event.proposals.confirmed.each do |proposal|
-    message_array << "#{proposal.performance.name.downcase.capitalize} is performing."
+      message_array << "#{proposal.performance.name.capitalize} is performing."
     end
     message_test = "There's an amazing event which takes place in #{@event.place.name} on #{@event.scheduled_at.strftime("%A, %d %b %Y")} at #{@event.scheduled_at.strftime("%H:%M") } : come and share !"
     @promotion.message = message_test + ' ' + message_array.join(' ')
