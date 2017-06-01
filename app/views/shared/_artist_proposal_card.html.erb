@@ -5,6 +5,11 @@
         <%= link_to place_path(proposal.event.place) do %>
           <%= cl_image_tag proposal.event.place.photo.path, width: 400, aspect_ratio: "16:9", crop: :fill, class: "product-image hidden-xs" %>
         <% end %>
+
+      <% else %>
+        <%= link_to place_path(proposal.event.place) do %>
+          <%= cl_image_tag "http://res.cloudinary.com/onmuze/image/upload/c_scale,w_400/v1496228339/places_ammyga.jpg", width: 400, aspect_ratio: "16:9", crop: :fill, class: "product-image hidden-xs" %>
+        <% end %>
       <% end %>
 
       <div class="product-body">

@@ -13,10 +13,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    if event_params[:place_id]
-      create_an_event_in_performance_show
-    else
+    if params[:event][:place_id]
       create_an_event_in_place_show
+    else
+      create_an_event_in_performance_show
     end
   end
 
@@ -85,10 +85,10 @@ class EventsController < ApplicationController
   end
 
   def create_an_event_in_place_show
-    @place = Place.find(params[:place_id])
+    @place = Place.find(params[:event][:place_id])
     @event = @place.events.new(event_params)
     if @event.save
-      redirect_to place_path(@place)
+      redirect_to event_path(@event)
     else
       render 'places/show'
     end
