@@ -8,14 +8,32 @@
     <%= render 'shared/update_pic_event' %>
   </div>
 <% end %>
+
+<% if @event.place.user == current_user %>
+  <div class="wrapper bg-grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="flexed-center">
+              <div class="right-marged promote-text"><h5>Pay 10€ to <strong>promote</strong> your event 10 times on Facebook and to be referenced in 10 events websites.</h5></div>
+              <a href="" class="btn btn-danger">Promote now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<% end %>
+
 <div class="wrapper">
   <%= render 'events/header_event' %>
 </div>
+
 <% if @event.place.user == current_user %>
   <div>
     <%= render 'events/search_artist_bar' %>
   </div>
 <% end %>
+
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -32,21 +50,7 @@
     </div>
   </div>
 </div>
-<% if @event.place.user == current_user %>
-  <div class="wrapper promote-wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="flexed-center">
-              <div class="right-marged div-text"><span>Pay 10€ to <strong>promote</strong> your event 10 times on Facebook and to be referenced  in 10 events  websites.</span></div>
-              <a href="" class="btn btn-danger">Promote now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-<% end %>
-<div class="wrapper-grey">
+<div class="wrapper bg-grey">
   <div class="container">
     <div class="row">
       <div class="col-md-4 location_banner">
