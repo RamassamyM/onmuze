@@ -5,7 +5,7 @@
         <%= f.label :banner do %>
           <p><i class="fa fa-camera" aria-hidden="true"></i> Change picture</p>
         <% end %>
-        <%= f.input :banner, as: :file, label: false, input_html: { class: "hidden", onchange: "$('#pic-updater').trigger('submit.rails')" } %>
+        <%= f.input :banner, as: :file, label: false, input_html: { class: "hidden", onchange: "$('#pic-updater').trigger('submit')" } %>
       <% end %>
     </div>
   </div>
