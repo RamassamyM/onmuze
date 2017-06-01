@@ -70,7 +70,7 @@ module ApplicationHelper
 
   def event_show_card(event)
     if event.photo
-      cl_image_path event.photo.path, width: 200, height: 100, crop: :fill
+      cl_image_path event.photo.path, width: 800, crop: :fill
     else
       image_url('event.jpg')
     end
@@ -78,7 +78,7 @@ module ApplicationHelper
 
   def place_show_card(place)
     if place.photo
-      cl_image_path place.photo.path, width: 200, height: 100, crop: :fill
+      cl_image_path place.photo.path, width: 800, crop: :fill
     else
       image_url('places.jpg')
     end
@@ -86,7 +86,7 @@ module ApplicationHelper
 
   def performance_show_card(performance)
     if performance.avatar
-      cl_image_path performance.avatar.path, width: 200, height: 100, crop: :fill
+      cl_image_path performance.avatar.path, width: 800, crop: :fill
     else
       image_url('artist.png')
     end
