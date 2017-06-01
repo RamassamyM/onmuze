@@ -22,6 +22,7 @@ class EventsController < ApplicationController
 
   def show
     @genres = Genre.all.map(&:event_type).uniq
+    @promotion = @event.promotions.new
   end
 
   def update

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :proposals, only: %i(create)
   end
   resources :places, only: %i(index show new create update), shallow: true do
-    resources :events, only: %i(index show create update)
+    resources :events, only: %i(index show create update), shallow: true do
+      resources :promotions, only: %i(create)
+    end
   end
   resources :events, only: %i(create)
   resources :proposals, only: %i(update)

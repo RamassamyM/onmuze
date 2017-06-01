@@ -9,6 +9,24 @@
   </div>
 <% end %>
 
+<% if @event.place.user == current_user %>
+  <div class="wrapper bg-grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="flexed-center">
+              <div class="right-marged promote-text"><h5>Pay 10€ to <strong>promote</strong> your event 10 times on Facebook and to be referenced in 10 events websites.</h5>
+              </div>
+              <%= simple_form_for [@event, @promotion] do |f| %>
+                <%= f.submit "Promote now", class: "btn custom-red-btn"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<% end %>
+
 <div class="wrapper">
   <%= render 'events/header_event' %>
 </div>
