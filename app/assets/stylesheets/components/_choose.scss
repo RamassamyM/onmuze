@@ -10,7 +10,7 @@
   align-items :center;
   transition-timing-function: ease-in;
   transition: 0.3s;
-
+  margin-bottom: 5px;
   &:hover {
     color: $black;
     background-color: rgba(238,238,238,0.5);
