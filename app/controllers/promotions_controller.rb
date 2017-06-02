@@ -34,8 +34,8 @@ class PromotionsController < ApplicationController
     prefix = 'http://res.cloudinary.com/onmuze/image/upload/'
     if event.photo
       prefix + event.photo.path
-    elsif event.proposals.confirmed.first && event.proposals.confirmed.first.photo
-      prefix + event.proposals.confirmed.first.photo.path
+    elsif event.proposals.confirmed.first && event.proposals.confirmed.first.performance.banner
+      prefix + event.proposals.confirmed.first.performance.banner.path
     else
       prefix + 'v1496241330/lrfvqzybfp61fiarrr9w.jpg'
     end
